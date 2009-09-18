@@ -1,0 +1,24 @@
+<h1>Editing field_m_ts</h1>
+
+<% form_for(@field_m_ts) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Name %><br />
+    <%= f.text_field :Name %>
+  </p>
+  <p>
+    <%= f.label :URL %><br />
+    <%= f.text_field :URL %>
+  </p>
+  <p>
+    <%= f.label :date_added %><br />
+    <%= f.datetime_select :date_added %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @field_m_ts %> |
+<%= link_to 'Back', field_m_ts_path %>

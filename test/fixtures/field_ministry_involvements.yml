@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  field_ministry: 
+  client: 
+  first_involved: 2009-09-18
+  last_involved: 2009-09-18
+  became_christian: false
+
+two:
+  field_ministry: 
+  client: 
+  first_involved: 2009-09-18
+  last_involved: 2009-09-18
+  became_christian: false

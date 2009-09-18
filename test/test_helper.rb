@@ -3,6 +3,27 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
 class ActiveSupport::TestCase
+  # default values for various classes. kind of like simple fixtures for tests.
+  @@person_default_values = {
+    :first_name => "Bruce"
+  }
+
+  @@client_default_values = {
+    :person => Person.create(@@person_default_values)
+  }
+  
+  @@field_ministry_default_values = {
+    :name => "My Field Ministry",
+    :xml_url => "http://google.com/"
+  }
+  
+  @@field_ministry_involvement_default_values = {
+    :client => Client.create(@@client_default_values),
+    :field_ministry => FieldMinistry.create(@@field_ministry_default_values),
+    :start_date => 1.year.ago
+  }
+  
+  
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the
   # test database remains unchanged so your fixtures don't have to be reloaded

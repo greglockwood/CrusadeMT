@@ -1,5 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :field_m_ts
 
   # The priority is based upon order of creation: first created -> highest priority.
 

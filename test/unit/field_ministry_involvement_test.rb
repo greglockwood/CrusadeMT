@@ -3,26 +3,26 @@ require 'test_helper'
 class FieldMinistryInvolvementTest < ActiveSupport::TestCase
   # ensure relationships exist
   test "FieldMinistryInvolvement has a client property" do
-    assert(FieldMinistryInvolvement.responds_to?('client'), "FieldMinistryInvolvement does not have a client property (has the relationship been set?)")
+    assert(FieldMinistryInvolvement.respond_to?('client'), "FieldMinistryInvolvement does not have a client property (has the relationship been set?)")
   end
   
   test "FieldMinistryInvolvement has a field_ministry property" do
-    assert(FieldMinistryInvolvement.responds_to?('field_ministry'), "FieldMinistryInvolvement does not have a field_ministry property (has the relationship been set?)")
+    assert(FieldMinistryInvolvement.respond_to?('field_ministry'), "FieldMinistryInvolvement does not have a field_ministry property (has the relationship been set?)")
   end
   
   # ensure scoped fields exist
   test "FieldMinistryInvolvement has a start_date property" do
-    assert(FieldMinistryInvolvement.responds_to?('start_date'), "FieldMinistryInvolvement does not have a start_date property as scoped.")
+    assert(FieldMinistryInvolvement.respond_to?('start_date'), "FieldMinistryInvolvement does not have a start_date property as scoped.")
   end
   
   test "FieldMinistryInvolvement has an end_date property" do
-    assert(FieldMinistryInvolvement.responds_to?('end_date'), "FieldMinistryInvolvement does not have an end_date property as scoped.")
+    assert(FieldMinistryInvolvement.respond_to?('end_date'), "FieldMinistryInvolvement does not have an end_date property as scoped.")
   end
   
   # ensure required fields are enforced
   test "FieldMinistryInvolvement requires client to be set" do
     no_client = create({:client => nil})
-    assert(!no_client.valid, "FieldMinistryInvolvement should be invalid when client is nil:\n#{no_client.to_yaml}")
+    assert(!no_client.valid?, "FieldMinistryInvolvement should be invalid when client is nil:\n#{no_client.to_yaml}")
   end
   
   test "FieldMinistryInvolvement requires field_ministry to be set" do
@@ -43,6 +43,6 @@ class FieldMinistryInvolvementTest < ActiveSupport::TestCase
   
 private 
   def create(options={})
-    FieldMinistryInvolvement.create(@@field_ministry_involvement_default_options.merge(options))
+    FieldMinistryInvolvement.create(@@field_ministry_involvement_default_values.merge(options))
   end
 end

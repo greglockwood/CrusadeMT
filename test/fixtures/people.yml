@@ -9,7 +9,6 @@ one:
   church_pastor: MyString
   age: 1
   spouse_id: 1
-  primary_school_id: 1
   workplace: 
 
 two:
@@ -21,5 +20,4 @@ two:
   church_pastor: MyString
   age: 1
   spouse_id: 1
-  primary_school_id: 1
   workplace: 

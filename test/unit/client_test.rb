@@ -12,7 +12,7 @@ class ClientTest < ActiveSupport::TestCase
   
   # ensure scoped fields exist
   test "client has upcoming_events property" do
-    assert(Client.responds_to?('upcoming_events'), "Client does not have an upcoming_events property yet.")
+    assert(Client.respond_to?('upcoming_events'), "Client does not have an upcoming_events property yet.")
   end
   
   # required fields

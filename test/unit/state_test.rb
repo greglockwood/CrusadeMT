@@ -9,7 +9,8 @@ class StateTest < ActiveSupport::TestCase
     ["Tasmania","TAS"], 
     ["Victoria","VIC"],
     ["Western Australia","WA"]]
-    assert_equal(aus_states.sort, States.all.collect( |state| [state.name, state.abbreviation]).sort)
+    assert_equal(7, State.count, "There are not seven states in the database. Have you run 'rake db:populate:states' yet?")
+    assert_equal(aus_states.sort, State.all.collect{ |state| [state.name, state.abbreviation]}.sort)
   end
   
 end

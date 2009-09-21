@@ -5,11 +5,21 @@ class EnrolmentTest < ActiveSupport::TestCase
   test "enrolment has a degree property" do
     enrolment = create
     assert(enrolment.respond_to?('degree'), "enrolment does not have a degree property (has the relationship been set?)")
+    begin
+      enrolment.degree
+    rescue
+      assert(false, "degree property is throwing an error")
+    end    
   end
   
   test "enrolment has a person property" do
     enrolment = create
     assert(enrolment.respond_to?('person'), "enrolment does not have a person property (has the relationship been set?).")
+    begin
+      enrolment.person
+    rescue
+      assert(false, "person property is throwing an error")
+    end
   end
   
   # required fields

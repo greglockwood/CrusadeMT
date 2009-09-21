@@ -5,13 +5,22 @@ class FieldMinistryInvolvementTest < ActiveSupport::TestCase
   test "FieldMinistryInvolvement has a client property" do
     field_ministry_involvement = create
     assert(field_ministry_involvement.respond_to?('client'), "FieldMinistryInvolvement does not have a client property (has the relationship been set?)")
+    begin
+      field_ministry_involvement.client
+    rescue
+      assert(false, "client property is throwing an error")
+    end
   end
   
   test "FieldMinistryInvolvement has a field_ministry property" do
     field_ministry_involvement = create
     assert(field_ministry_involvement.respond_to?('field_ministry'), "FieldMinistryInvolvement does not have a field_ministry property (has the relationship been set?)")
-  end
-  
+      begin
+        field_ministry_involvement.field_ministry
+      rescue
+        assert(false, "field_ministry property is throwing an error")
+      end
+    end  
   # ensure scoped fields exist
   test "FieldMinistryInvolvement has a start_date property" do
     field_ministry_involvement = create

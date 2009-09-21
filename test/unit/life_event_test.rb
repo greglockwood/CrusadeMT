@@ -5,8 +5,12 @@ class LifeEventTest < ActiveSupport::TestCase
   test "life event has a person property" do
     life_event = create
     assert(life_event.respond_to?('person'), "life_event does not have a person property (has the relationship been set?).")
-  end
-  
+    begin
+      life_event.person
+    rescue
+      assert(false, "person property is throwing an error")
+    end
+  end  
   # required values
   test "description is required for life events" do
     nil_desc = create({:description => nil})

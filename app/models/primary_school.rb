@@ -1,0 +1,3 @@
+class PrimarySchool < School
+
+end

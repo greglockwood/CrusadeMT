@@ -7,11 +7,13 @@ class Person < ActiveRecord::Base
   
   has_one :client
   has_many :children, :class_name => 'Person', :foreign_key => 'parent_id'
+  has_many :enrolments
   has_many :degrees, :through => :enrolments
+  has_many :students
   has_many :schools, :through => :students
-  has_many :primary_schools, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'primary_school'"
-  has_many :high_schools, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'high_school'"
-  has_many :universities, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'university'"
+  has_many :primary_schools, :through => :students, :source => :school
+  has_many :high_schools, :through => :students, :source => :school
+  has_many :universities, :through => :students, :source => :school
   has_many :life_events
   has_many :upcoming_events, :class_name => 'LifeEvent', :foreign_key => 'person_id', :conditions => "event_date > '#{Date.today.to_s(:db)}'"
   

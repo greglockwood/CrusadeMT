@@ -26,6 +26,7 @@ namespace :db do
       ministries = ["Student Life", "Athletes In Action", "Family Life", "Children of the World", "Youth Ministry", "CRAM"]
       current_ministry = 0
       current_state = 0
+      child_ministry_ids = []
       
       # keep track of ids of records created so we can assign them properly later
       state_ids = []
@@ -36,8 +37,12 @@ namespace :db do
       people_ids = []
       adult_ids = []
       young_adult_ids = []
+      teenager_ids = []
       child_ids = []
       workplace_ids = [nil]
+      high_school_workplace_ids = []
+      family_life_ids = []
+      children_to_assign_to_kids_ministries = []
       
       
       # create the non-nested sample models to use, like universities and workplaces
@@ -58,6 +63,28 @@ namespace :db do
         university.state_id = state_ids # should randomly pick one
         university.postcode = 2000..9999
         university_ids.push university.id
+      end
+      
+      # high schools
+      HighSchool.populate 10 do |high_school|
+        high_school.name = "#{Populator.words(1..2).titleize} High School"
+        high_school.address1 = Faker::Address.secondary_address
+        high_school.address2 = Faker::Address.street_address
+        high_school.suburb = Populator.words(1).titleize
+        high_school.state_id = state_ids # should randomly pick one
+        high_school.postcode = 2000..9999
+        high_school_ids.push high_school.id
+        
+        # also create it as a workplace
+        Workplace.populate 1 do |workplace|
+          workplace.name = high_school.name
+          workplace.address1 = high_school.address1
+          workplace.address2 = high_school.address2
+          workplace.suburb = high_school.suburb
+          workplace.state_id = high_school.state_id
+          workplace.postcode = high_school.postcode
+          high_school_workplace_ids.push workplace.id        
+        end        
       end
       
       # churches
@@ -96,6 +123,8 @@ namespace :db do
           adult_ids.push person.id
         elsif (person.date_of_birth < 18.years.ago.to_date)
           young_adult_ids.push person.id
+        elsif (person.date_of_birth < 12.years.ago.to_date)
+          teenager_ids.push person.id
         else
           child_ids.push person.id
         end
@@ -109,6 +138,14 @@ namespace :db do
         person.suburb = Populator.words(1).titleize
         person.state_id = state_ids # should randomly pick one
         person.postcode = 2000..9999
+        # for 1 in 5 people, create up to a few life events, so long as they are over 18
+        if [1,2,3,4,5].rand == 5 and person.date_of_birth < 18.years.ago.to_date
+          LifeEvent.populate 1..2 do |life_event|
+            life_event.person_id = person.id
+            life_event.description = ["Marriage", "Instrument Purchase", "Solo Album Release"] # all I could think of
+            life_event.event_date = 18.years.ago.to_date..3.years.from_now.to_date
+          end
+        end
       end
       
       FieldMinistry.populate 6 do |field_ministry|
@@ -124,17 +161,127 @@ namespace :db do
               involvement.client_id = client.id
               involvement.start_date = 20.years.ago.to_date..Date.today
               involvement.end_date = involvement.start_date + ([3, 4, 5, 6].rand * [182, 365].rand)
+              involvement.became_christian = [true, false]
             end
             Student.populate 1 do |student|
               student.person_id = client.person_id
               student.school_id = university_ids
             end
+            # TODO Should probably add degrees here as well
           end
-        # TODO Other ministries here
+        when "Athletes In Action"
+          Client.populate 10 do |client|
+            client.person_id = young_adult_ids + adult_ids
+            FieldMinistryInvolvement.populate 1 do |involvement|
+              involvement.field_ministry_id = field_ministry.id
+              involvement.client_id = client.id
+              involvement.start_date = (18.years.ago.to_date)..Date.today
+              involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+              involvement.became_christian = [true, false]
+            end
+            # TODO Should probably give them a special basketball workplace, maybe
+          end          
+        when "Family Life"
+          # the parents
+          Client.populate 10 do |client|
+            client.person_id = adult_ids
+            FieldMinistryInvolvement.populate 1 do |involvement|
+              involvement.field_ministry_id = field_ministry.id
+              involvement.client_id = client.id
+              involvement.start_date = 30.years.ago.to_date..Date.today
+              involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+              involvement.became_christian = [true, false]
+            end
+            family_life_ids.push client.person_id # keep a list of the parent's person_ids
+          end      
+          # create some children
+          # might not want all 5 to be clients
+          Client.populate 5 do |client|
+            client.person_id = child_ids
+            Person.update(client.person_id, :parent_id => family_life_ids.rand) # set their parent to be a random Family Life person
+            # for about half the kids, add them to a list for later adding to a kids ministry
+            if [1,2].rand == 2
+              children_to_assign_to_kids_ministries.push client.id
+            end
+          end          
+        when "Children of the World"
+          Client.populate 10 do |client|
+            client.person_id = child_ids
+            # have around half of them as kids of one of the Family Life clients
+            if [1,2].rand == 2
+              Person.update(client.person_id, :parent_id => family_life_ids.rand)
+            end
+            FieldMinistryInvolvement.populate 1 do |involvement|
+              involvement.field_ministry_id = field_ministry.id
+              involvement.client_id = client.id
+              involvement.start_date = 10.years.ago.to_date..Date.today
+              involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+              involvement.became_christian = [true, false]
+            end
+          end
+          child_ministry_ids.push field_ministry.id
+        when "Youth Ministry"
+          Client.populate 10 do |client|
+            client.person_id = child_ids
+            # have around half of them as kids of one of the Family Life clients
+            if [1,2].rand == 2
+              Person.update(client.person_id, :parent_id => family_life_ids.rand)
+            end
+            FieldMinistryInvolvement.populate 1 do |involvement|
+              involvement.field_ministry_id = field_ministry.id
+              involvement.client_id = client.id
+              involvement.start_date = 10.years.ago.to_date..Date.today
+              involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+              involvement.became_christian = [true, false]
+            end
+          end
+          child_ministry_ids.push field_ministry.id
+        when "CRAM"
+          # 8 high school students
+          Client.populate 8 do |client|
+            client.person_id = teenager_ids
+            Student.populate 1 do |student|
+              student.person_id = client.person_id
+              student.school_id = high_school_ids # random high school
+            end
+            FieldMinistryInvolvement.populate 1 do |involvement|
+              involvement.field_ministry_id = field_ministry.id
+              involvement.client_id = client.id
+              involvement.start_date = 10.years.ago.to_date..Date.today
+              involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+              involvement.became_christian = [true, false]
+            end
+          end
+          # 2 high school teachers
+          Client.populate 2 do |client|
+            client.person_id = young_adult_ids + adult_ids
+            Person.update(client.person_id, :workplace_id => high_school_workplace_ids.rand) # set them to work in a random high school work place
+            FieldMinistryInvolvement.populate 1 do |involvement|
+              involvement.field_ministry_id = field_ministry.id
+              involvement.client_id = client.id
+              involvement.start_date = 10.years.ago.to_date..Date.today
+              involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+              involvement.became_christian = [true, false]
+            end
+          end  
         end
         
         current_ministry += 1
       end 
+      
+      # now we know the correct ids for kids ministries (it might vary, best to be safe)
+      # we can assign those kids from earlier to a random one
+      children_to_assign_to_kids_ministries.each do |client_id|      
+        FieldMinistryInvolvement.populate 1 do |involvement|
+          involvement.field_ministry_id = child_ministry_ids # random kids ministry
+          involvement.client_id = client_id # the current kid's client_id
+          involvement.start_date = 10.years.ago.to_date..Date.today
+          involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
+          involvement.became_christian = [true, false]
+        end
+      end
+
+      
     end
   end
 

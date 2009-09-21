@@ -12,12 +12,6 @@ class ClientTest < ActiveSupport::TestCase
     assert(client.respond_to?('field_ministry_involvements'), "Client does not have a field_ministry_involvements property (has the relationship been declared?)")
   end
   
-  # ensure scoped fields exist
-  test "client has upcoming_events property" do
-    client = create
-    assert(client.respond_to?('upcoming_events'), "Client does not have an upcoming_events property yet.")
-  end
-  
   # required fields
   test "client requires person property to be set" do
     no_person = create({:person => nil})

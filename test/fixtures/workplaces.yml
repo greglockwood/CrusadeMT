@@ -7,7 +7,7 @@ one:
   address3: MyString
   suburb: MyString
   state: 
-  post_code: MyString
+  postcode: MyString
 
 two:
   name: MyString
@@ -16,4 +16,4 @@ two:
   address3: MyString
   suburb: MyString
   state: 
-  post_code: MyString
+  postcode: MyString

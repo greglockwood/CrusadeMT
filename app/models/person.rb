@@ -1,7 +1,9 @@
 class Person < ActiveRecord::Base
+  include Shared::FullAddress
   belongs_to :church
   belongs_to :workplace
   belongs_to :spouse, :class_name => 'Person'
+  belongs_to :state
   
   has_one :client
   has_many :children, :class_name => 'Person', :foreign_key => 'parent_id'
@@ -10,7 +12,8 @@ class Person < ActiveRecord::Base
   has_many :primary_schools, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'primary_school'"
   has_many :high_schools, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'high_school'"
   has_many :universities, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'university'"
-
+  has_many :life_events
+  has_many :upcoming_events, :class_name => 'LifeEvent', :foreign_key => 'person_id', :conditions => "event_date > '#{Date.today.to_s(:db)}'"
   
   validates_presence_of :first_name
   

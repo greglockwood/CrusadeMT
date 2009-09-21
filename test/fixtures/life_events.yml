@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  person: 
+  description: MyString
+  event_date: 2009-09-21
+
+two:
+  person: 
+  description: MyString
+  event_date: 2009-09-21

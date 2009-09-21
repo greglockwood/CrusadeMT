@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class SchoolTest < ActiveSupport::TestCase
-  # TODO Some tests for School here
-  # Don't forget it includes primary schools, high schools and universities
-  
   # relationships
   test "school has a people property" do
     school = create
@@ -51,6 +48,12 @@ class SchoolTest < ActiveSupport::TestCase
     default = create
     assert(default.valid?, "Default values for school are not valid. Double check the @@school_default_values in test_helper.rb.")
   end
+  
+  # other fields
+  test "school has a full_address property" do
+    school = create
+    test_full_address(school) # test helper method
+  end  
   
 private
   def create(options={})

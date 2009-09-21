@@ -5,3 +5,7 @@ Will add any instructions here as they occur to me.
 To get up and running, be sure to run the following rake tasks:
 1. rake db:migrate
 2. rake db:populate:states
+
+My Todo Tasks:
+1. Refactor the primary, high school, uni thing using Single Table Inheritance.
+   See this link for details: http://api.rubyonrails.org/classes/ActiveRecord/Base.html, Single Table Inheritance section

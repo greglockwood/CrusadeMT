@@ -1,14 +1,15 @@
 require 'test_helper'
 
 class WorkplaceTest < ActiveSupport::TestCase
-  test "workplace has full_address virtual attribute" do
-    assert(Workplace.respond_to?('full_address'), "Workplace does not have a full_address virtual attribute yet.")
-    # TODO Check it is the correct format, etc    
+  # other fields
+  test "workplace has a full_address property" do
+    workplace = create
+    test_full_address(workplace) # test helper method
   end
   
 private
   
   def create(options={})
-    Workplace.create(@@workplace_default_options.merge(options))
+    Workplace.create(@@workplace_default_values.merge(options))
   end
 end

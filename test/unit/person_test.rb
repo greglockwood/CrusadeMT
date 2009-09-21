@@ -42,6 +42,16 @@ class PersonTest < ActiveSupport::TestCase
     assert(person.respond_to?('degrees'), "Person does not have a degrees property (has the relationship been set up?).")
   end
   
+  test "person has a life_events property" do
+    person = create
+    assert(person.respond_to?('life_events'), "Person does not have a life_events property (has the relationship been set?)")
+  end
+  
+  test "client has upcoming_events property" do
+    client = create
+    assert(client.respond_to?('upcoming_events'), "Client does not have an upcoming_events property yet.")
+  end
+  
   # ensure other scoped fields exist
   test "person has an email attribute" do
     person = create
@@ -58,12 +68,12 @@ class PersonTest < ActiveSupport::TestCase
     assert(person.respond_to?('gender'), "Person does not have a gender attribute.")
   end
   
-  test "person has a full_address virtual attribute" do
+
+  test "person has a full_address property" do
     person = create
-    assert(person.respond_to?('full_address'), "Person does not have a full_address virtual attribut yet.")
-    # TODO Check contents of attribute are correct
+    test_full_address(person) # test helper method
   end
-  
+    
   # required fields
   test "person must have at least a first name" do
     no_fname = create({:first_name => nil})

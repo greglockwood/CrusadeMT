@@ -1,4 +1,6 @@
 class School < ActiveRecord::Base
+  include Shared::FullAddress
+  
   belongs_to :state
   
   has_many :degrees, :class_name => 'Degree', :foreign_key => 'university_id'

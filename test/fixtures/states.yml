@@ -1,7 +1,29 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+act:
+  name: Australian Capitol Territory
+  abbreviation: ACT
 
-two:
-  name: MyString
+nsw:
+  name: New South Wales
+  abbreviation: NSW
+  
+nt:
+  name: Northern Territory
+  abbreviation: NT
+  
+sa:
+  name: South Australia
+  abbreviation: SA
+  
+tas:
+  name: Tasmania
+  abbreviation: TAS
+  
+vic:
+  name: Victoria
+  abbreviation: VIC
+  
+wa:
+  name: Western Australia
+  abbreviation: WA

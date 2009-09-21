@@ -23,6 +23,23 @@ class ActiveSupport::TestCase
     :start_date => 1.year.ago
   }
   
+  @@church_default_values = {
+    :name => "My Church"
+  }
+  
+  @@school_default_values = {
+    :name => "Derek Zoolander School for Kids Who Want To Learn to Read Good (and Do Other Things Good, too)"
+    # I'm pretty sure that's not the correct line, but it's close enough for some test data.
+  }
+  
+  @@degree_default_values = {
+    :name => "Bachelor of Attendance",
+    :university => School.create(@@school_default_values)
+  }
+  
+  @@workplace_default_values = {
+    :name => "Microgooglesoft Inc"
+  }
   
   # Transactional fixtures accelerate your tests by wrapping each test method
   # in a transaction that's rolled back on completion.  This ensures that the

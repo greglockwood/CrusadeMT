@@ -3,16 +3,19 @@ require 'test_helper'
 class ClientTest < ActiveSupport::TestCase
   # relationships
   test "client has an associated person property" do
-    assert(Client.respond_to?('person'), "Client does not have a person property (has the relationship been declared?).") 
+    client = create
+    assert(client.respond_to?('person'), "Client does not have a person property (has the relationship been declared?).") 
   end
   
   test "client has a field_ministry_involvements field" do
-    assert(Client.respond_to?('field_ministry_involvements'), "Client does not have a field_ministry_involvements property (has the relationship been declared?)")
+    client = create
+    assert(client.respond_to?('field_ministry_involvements'), "Client does not have a field_ministry_involvements property (has the relationship been declared?)")
   end
   
   # ensure scoped fields exist
   test "client has upcoming_events property" do
-    assert(Client.respond_to?('upcoming_events'), "Client does not have an upcoming_events property yet.")
+    client = create
+    assert(client.respond_to?('upcoming_events'), "Client does not have an upcoming_events property yet.")
   end
   
   # required fields

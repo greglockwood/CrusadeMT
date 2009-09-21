@@ -5,4 +5,10 @@ class WorkplaceTest < ActiveSupport::TestCase
     assert(Workplace.respond_to?('full_address'), "Workplace does not have a full_address virtual attribute yet.")
     # TODO Check it is the correct format, etc    
   end
+  
+private
+  
+  def create(options={})
+    Workplace.create(@@workplace_default_options.merge(options))
+  end
 end

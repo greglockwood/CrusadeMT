@@ -3,20 +3,24 @@ require 'test_helper'
 class FieldMinistryInvolvementTest < ActiveSupport::TestCase
   # ensure relationships exist
   test "FieldMinistryInvolvement has a client property" do
-    assert(FieldMinistryInvolvement.respond_to?('client'), "FieldMinistryInvolvement does not have a client property (has the relationship been set?)")
+    field_ministry_involvement = create
+    assert(field_ministry_involvement.respond_to?('client'), "FieldMinistryInvolvement does not have a client property (has the relationship been set?)")
   end
   
   test "FieldMinistryInvolvement has a field_ministry property" do
-    assert(FieldMinistryInvolvement.respond_to?('field_ministry'), "FieldMinistryInvolvement does not have a field_ministry property (has the relationship been set?)")
+    field_ministry_involvement = create
+    assert(field_ministry_involvement.respond_to?('field_ministry'), "FieldMinistryInvolvement does not have a field_ministry property (has the relationship been set?)")
   end
   
   # ensure scoped fields exist
   test "FieldMinistryInvolvement has a start_date property" do
-    assert(FieldMinistryInvolvement.respond_to?('start_date'), "FieldMinistryInvolvement does not have a start_date property as scoped.")
+    field_ministry_involvement = create
+    assert(field_ministry_involvement.respond_to?('start_date'), "FieldMinistryInvolvement does not have a start_date property as scoped.")
   end
   
   test "FieldMinistryInvolvement has an end_date property" do
-    assert(FieldMinistryInvolvement.respond_to?('end_date'), "FieldMinistryInvolvement does not have an end_date property as scoped.")
+    field_ministry_involvement = create
+    assert(field_ministry_involvement.respond_to?('end_date'), "FieldMinistryInvolvement does not have an end_date property as scoped.")
   end
   
   # ensure required fields are enforced

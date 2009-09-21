@@ -18,6 +18,7 @@ class Person < ActiveRecord::Base
   has_many :upcoming_events, :class_name => 'LifeEvent', :foreign_key => 'person_id', :conditions => "event_date > '#{Date.today.to_s(:db)}'"
   
   validates_presence_of :first_name
+  validates_inclusion_of :gender, :in => %w( male female unknown ), :allow_nil => true, :message => "gender {{value}} is not a valid gender."
   
   def age
     # return whatever is in the age field, unless date_of_birth is set,

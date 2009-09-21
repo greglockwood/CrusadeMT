@@ -113,6 +113,20 @@ class PersonTest < ActiveSupport::TestCase
     assert(person.respond_to?('gender'), "Person does not have a gender attribute.")
   end
   
+  test "gender attribute only accepts valid values" do
+    person = create({:gender => "both"})
+    assert(!person.valid?, "Person should not be valid for a gender of 'both'")
+    person = create({:gender => "male"})
+    assert(person.valid?, "Person should be valid for a gender of 'male'")
+    person = create({:gender => "female"})
+    assert(person.valid?, "Person should be valid for a gender of 'female'.")
+    person = create({:gender => "unknown"})
+    assert(person.valid?, "Person should be valid for a gender of 'unknown'.")
+    person = create({:gender => ""})
+    assert(!person.valid?, "Person should not be valid if gender is blank.")
+    person = create({:gender => nil})
+    assert(person.valid?, "Person should be valid when gender is nil.")
+  end
 
   test "person has a full_address property" do
     person = create

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090921012742) do
+ActiveRecord::Schema.define(:version => 20090921102055) do
 
   create_table "churches", :force => true do |t|
     t.string   "name"
@@ -92,13 +92,13 @@ ActiveRecord::Schema.define(:version => 20090921012742) do
 
   create_table "schools", :force => true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "school_type"
     t.string   "address1"
     t.string   "address2"
     t.string   "address3"
     t.string   "suburb"
     t.integer  "state_id"
-    t.string   "postcode",   :limit => 4
+    t.string   "postcode",    :limit => 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(:version => 20090921012742) do
   create_table "states", :force => true do |t|
     t.string   "name"
     t.string   "abbreviation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "school_id"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

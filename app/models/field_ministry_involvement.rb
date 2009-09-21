@@ -5,5 +5,4 @@ class FieldMinistryInvolvement < ActiveRecord::Base
   validates_presence_of :client
   validates_presence_of :field_ministry
   validates_presence_of :start_date
-  
 end

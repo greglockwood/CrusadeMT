@@ -6,10 +6,13 @@ class Person < ActiveRecord::Base
   has_one :client
   has_many :children, :class_name => 'Person', :foreign_key => 'parent_id'
   has_many :degrees, :through => :enrolments
-  has_many :universities, :through => :degrees
+  has_many :schools, :through => :students
+  has_many :primary_schools, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'primary_school'"
+  has_many :high_schools, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'high_school'"
+  has_many :universities, :through => :students, :foreign_key => 'person_id', :conditions => "school_type = 'university'"
+
   
   validates_presence_of :first_name
-  
   
   def age
     # return whatever is in the age field, unless date_of_birth is set,
@@ -20,4 +23,5 @@ class Person < ActiveRecord::Base
     month_diff = Date.today.month - date_of_birth.month - (day_diff < 0 ? 1 : 0)
     Date.today.year - date_of_birth.year - (month_diff < 0 ? 1 : 0)
   end
+  
 end

@@ -28,8 +28,9 @@ class ActiveSupport::TestCase
   }
   
   @@school_default_values = {
-    :name => "Derek Zoolander School for Kids Who Want To Learn to Read Good (and Do Other Things Good, too)"
+    :name => "Derek Zoolander School for Kids Who Want To Learn to Read Good (and Do Other Things Good, too)",
     # I'm pretty sure that's not the correct line, but it's close enough for some test data.
+    :school_type => "high_school"
   }
   
   @@degree_default_values = {
@@ -39,6 +40,16 @@ class ActiveSupport::TestCase
   
   @@workplace_default_values = {
     :name => "Microgooglesoft Inc"
+  }
+  
+  @@student_default_values = {
+    :person => Person.create(@@person_default_values),
+    :school => School.create(@@school_default_values)
+  }
+  
+  @@enrolment_default_values = {
+    :person => Person.create(@@person_default_values),
+    :degree => Degree.create(@@degree_default_values)
   }
   
   # Transactional fixtures accelerate your tests by wrapping each test method

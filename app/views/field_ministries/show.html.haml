@@ -1,0 +1,14 @@
+%h2= "Field Ministry \"#{@field_ministry.name}\""
+- content_tag_for :div, @field_ministry do
+  %ul
+    %li
+      %strong Name:
+      =h @field_ministry.name
+    %li
+      %strong 
+        %abbr{:title => "eXtensible Markup Language"} XML
+        %abbr{:title => "Universal Resource Locator"} URL:
+      =h @field_ministry.xml_url
+%ul
+  %li= link_to 'Edit', edit_field_ministry_path(@field_ministry)
+  %li= link_to 'Back', field_ministries_path

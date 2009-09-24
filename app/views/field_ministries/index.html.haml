@@ -1,0 +1,8 @@
+%h2 Listing Field Ministries
+- if !@field_ministries.empty?
+  .field_ministries
+    = render :partial => "field_ministry", :collection => @field_ministries
+  = will_paginate(@field_ministries)
+- else
+  %p There are no field_ministries to show yet.
+= link_to 'New field_ministry', new_field_ministry_path

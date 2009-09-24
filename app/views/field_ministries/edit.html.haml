@@ -1,0 +1,6 @@
+%h2 Editing Field Ministry
+= render :partial => "form", :locals => {:field_ministry => @field_ministry}
+%ul
+  %li= link_to 'Show', @field_ministry
+  %li= link_to 'Back', field_ministries_path
+  %li= link_to 'Destroy', @field_ministry, :confirm => 'Are you sure?', :method => :delete  

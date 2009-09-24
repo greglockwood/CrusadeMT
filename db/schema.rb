@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090921160147) do
+ActiveRecord::Schema.define(:version => 20090924093959) do
 
   create_table "churches", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,41 @@ ActiveRecord::Schema.define(:version => 20090921160147) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "search_involvements", :force => true do |t|
+    t.integer  "search_id"
+    t.integer  "field_ministry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "searches", :force => true do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "nickname"
+    t.string   "last_name"
+    t.string   "gender"
+    t.string   "suburb"
+    t.boolean  "christian"
+    t.boolean  "became_christian"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.boolean  "has_children"
+    t.integer  "oldest_child_age"
+    t.integer  "church_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "states", :force => true do |t|
     t.string   "name"

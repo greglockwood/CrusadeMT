@@ -1,0 +1,1079 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'><head><title>/Users/greg/.gem/ruby/1.8/gems/ruby-debug-0.10.3/cli/ruby-debug/commands/info.rb - C0 code coverage information</title>
+    <style type='text/css'>body { background-color: rgb(240, 240, 245); }</style>
+    <style type='text/css'>span.cross-ref-title {
+ font-size: 140%;
+}
+span.cross-ref a {
+ text-decoration: none;
+}
+span.cross-ref {
+ background-color:#f3f7fa;
+ border: 1px dashed #333;
+ margin: 1em;
+ padding: 0.5em;
+ overflow: hidden;
+}
+a.crossref-toggle {
+ text-decoration: none;
+}
+span.marked0 {
+ background-color: rgb(185, 210, 200);
+ display: block;
+}
+span.marked1 {
+ background-color: rgb(190, 215, 205);
+ display: block;
+}
+span.inferred0 {
+ background-color: rgb(175, 200, 200);
+ display: block;
+}
+span.inferred1 {
+ background-color: rgb(180, 205, 205);
+ display: block;
+}
+span.uncovered0 {
+ background-color: rgb(225, 110, 110);
+ display: block;
+}
+span.uncovered1 {
+ background-color: rgb(235, 120, 120);
+ display: block;
+}
+span.overview {
+ border-bottom: 8px solid black;
+}
+div.overview {
+ border-bottom: 8px solid black;
+}
+body {
+ font-family: verdana, arial, helvetica;
+}
+div.footer {
+ font-size: 68%;
+ margin-top: 1.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+ margin-bottom: 0.5em;
+}
+h5 {
+ margin-top: 0.5em;
+}
+.hidden {
+ display: none;
+}
+div.separator {
+ height: 10px;
+}
+/* Commented out for better readability, esp. on IE */
+/*
+table tr td, table tr th {
+ font-size: 68%;
+}
+td.value table tr td {
+ font-size: 11px;
+}
+*/
+table.percent_graph {
+ height: 12px;
+ border: #808080 1px solid;
+ empty-cells: show;
+}
+table.percent_graph td.covered {
+ height: 10px;
+ background: #00f000;
+}
+table.percent_graph td.uncovered {
+ height: 10px;
+ background: #e00000;
+}
+table.percent_graph td.NA {
+ height: 10px;
+ background: #eaeaea;
+}
+table.report {
+ border-collapse: collapse;
+ width: 100%;
+}
+table.report td.heading {
+ background: #dcecff;
+ border: #d0d0d0 1px solid;
+ font-weight: bold;
+ text-align: center;
+}
+table.report td.heading:hover {
+ background: #c0ffc0;
+}
+table.report td.text {
+ border: #d0d0d0 1px solid;
+}
+table.report td.value,
+table.report td.lines_total,
+table.report td.lines_code {
+ text-align: right;
+ border: #d0d0d0 1px solid;
+}
+table.report tr.light {
+ background-color: rgb(240, 240, 245);
+}
+table.report tr.dark {
+ background-color: rgb(230, 230, 235);
+}
+</style>
+    <script type='text/javascript'>
+// <![CDATA[
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make cross-references hidden by default
+  document.writeln( "<style type=\"text/css\">span.cross-ref { display: none }</style>" )
+  // ]]>
+</script>
+    <style type='text/css'>span.run0 {
+  background-color: rgb(178, 204, 255);
+  display: block;
+}
+span.run1 {
+  background-color: rgb(178, 206, 255);
+  display: block;
+}
+span.run2 {
+  background-color: rgb(178, 209, 255);
+  display: block;
+}
+span.run3 {
+  background-color: rgb(178, 211, 255);
+  display: block;
+}
+span.run4 {
+  background-color: rgb(178, 214, 255);
+  display: block;
+}
+span.run5 {
+  background-color: rgb(178, 218, 255);
+  display: block;
+}
+span.run6 {
+  background-color: rgb(178, 220, 255);
+  display: block;
+}
+span.run7 {
+  background-color: rgb(178, 223, 255);
+  display: block;
+}
+span.run8 {
+  background-color: rgb(178, 225, 255);
+  display: block;
+}
+span.run9 {
+  background-color: rgb(178, 228, 255);
+  display: block;
+}
+span.run10 {
+  background-color: rgb(178, 232, 255);
+  display: block;
+}
+span.run11 {
+  background-color: rgb(178, 234, 255);
+  display: block;
+}
+span.run12 {
+  background-color: rgb(178, 237, 255);
+  display: block;
+}
+span.run13 {
+  background-color: rgb(178, 239, 255);
+  display: block;
+}
+span.run14 {
+  background-color: rgb(178, 242, 255);
+  display: block;
+}
+span.run15 {
+  background-color: rgb(178, 246, 255);
+  display: block;
+}
+span.run16 {
+  background-color: rgb(178, 248, 255);
+  display: block;
+}
+span.run17 {
+  background-color: rgb(178, 251, 255);
+  display: block;
+}
+span.run18 {
+  background-color: rgb(178, 253, 255);
+  display: block;
+}
+span.run19 {
+  background-color: rgb(178, 255, 253);
+  display: block;
+}
+span.run20 {
+  background-color: rgb(178, 255, 249);
+  display: block;
+}
+span.run21 {
+  background-color: rgb(178, 255, 247);
+  display: block;
+}
+span.run22 {
+  background-color: rgb(178, 255, 244);
+  display: block;
+}
+span.run23 {
+  background-color: rgb(178, 255, 242);
+  display: block;
+}
+span.run24 {
+  background-color: rgb(178, 255, 239);
+  display: block;
+}
+span.run25 {
+  background-color: rgb(178, 255, 235);
+  display: block;
+}
+span.run26 {
+  background-color: rgb(178, 255, 233);
+  display: block;
+}
+span.run27 {
+  background-color: rgb(178, 255, 230);
+  display: block;
+}
+span.run28 {
+  background-color: rgb(178, 255, 228);
+  display: block;
+}
+span.run29 {
+  background-color: rgb(178, 255, 225);
+  display: block;
+}
+span.run30 {
+  background-color: rgb(178, 255, 221);
+  display: block;
+}
+span.run31 {
+  background-color: rgb(178, 255, 219);
+  display: block;
+}
+span.run32 {
+  background-color: rgb(178, 255, 216);
+  display: block;
+}
+span.run33 {
+  background-color: rgb(178, 255, 214);
+  display: block;
+}
+span.run34 {
+  background-color: rgb(178, 255, 211);
+  display: block;
+}
+span.run35 {
+  background-color: rgb(178, 255, 207);
+  display: block;
+}
+span.run36 {
+  background-color: rgb(178, 255, 205);
+  display: block;
+}
+span.run37 {
+  background-color: rgb(178, 255, 202);
+  display: block;
+}
+span.run38 {
+  background-color: rgb(178, 255, 200);
+  display: block;
+}
+span.run39 {
+  background-color: rgb(178, 255, 197);
+  display: block;
+}
+span.run40 {
+  background-color: rgb(178, 255, 193);
+  display: block;
+}
+span.run41 {
+  background-color: rgb(178, 255, 191);
+  display: block;
+}
+span.run42 {
+  background-color: rgb(178, 255, 188);
+  display: block;
+}
+span.run43 {
+  background-color: rgb(178, 255, 186);
+  display: block;
+}
+span.run44 {
+  background-color: rgb(178, 255, 183);
+  display: block;
+}
+span.run45 {
+  background-color: rgb(178, 255, 179);
+  display: block;
+}
+span.run46 {
+  background-color: rgb(179, 255, 178);
+  display: block;
+}
+span.run47 {
+  background-color: rgb(182, 255, 178);
+  display: block;
+}
+span.run48 {
+  background-color: rgb(184, 255, 178);
+  display: block;
+}
+span.run49 {
+  background-color: rgb(187, 255, 178);
+  display: block;
+}
+span.run50 {
+  background-color: rgb(191, 255, 178);
+  display: block;
+}
+span.run51 {
+  background-color: rgb(193, 255, 178);
+  display: block;
+}
+span.run52 {
+  background-color: rgb(196, 255, 178);
+  display: block;
+}
+span.run53 {
+  background-color: rgb(198, 255, 178);
+  display: block;
+}
+span.run54 {
+  background-color: rgb(201, 255, 178);
+  display: block;
+}
+span.run55 {
+  background-color: rgb(205, 255, 178);
+  display: block;
+}
+span.run56 {
+  background-color: rgb(207, 255, 178);
+  display: block;
+}
+span.run57 {
+  background-color: rgb(210, 255, 178);
+  display: block;
+}
+span.run58 {
+  background-color: rgb(212, 255, 178);
+  display: block;
+}
+span.run59 {
+  background-color: rgb(215, 255, 178);
+  display: block;
+}
+span.run60 {
+  background-color: rgb(219, 255, 178);
+  display: block;
+}
+span.run61 {
+  background-color: rgb(221, 255, 178);
+  display: block;
+}
+span.run62 {
+  background-color: rgb(224, 255, 178);
+  display: block;
+}
+span.run63 {
+  background-color: rgb(226, 255, 178);
+  display: block;
+}
+span.run64 {
+  background-color: rgb(229, 255, 178);
+  display: block;
+}
+span.run65 {
+  background-color: rgb(233, 255, 178);
+  display: block;
+}
+span.run66 {
+  background-color: rgb(235, 255, 178);
+  display: block;
+}
+span.run67 {
+  background-color: rgb(238, 255, 178);
+  display: block;
+}
+span.run68 {
+  background-color: rgb(240, 255, 178);
+  display: block;
+}
+span.run69 {
+  background-color: rgb(243, 255, 178);
+  display: block;
+}
+span.run70 {
+  background-color: rgb(247, 255, 178);
+  display: block;
+}
+span.run71 {
+  background-color: rgb(249, 255, 178);
+  display: block;
+}
+span.run72 {
+  background-color: rgb(252, 255, 178);
+  display: block;
+}
+span.run73 {
+  background-color: rgb(255, 255, 178);
+  display: block;
+}
+span.run74 {
+  background-color: rgb(255, 252, 178);
+  display: block;
+}
+span.run75 {
+  background-color: rgb(255, 248, 178);
+  display: block;
+}
+span.run76 {
+  background-color: rgb(255, 246, 178);
+  display: block;
+}
+span.run77 {
+  background-color: rgb(255, 243, 178);
+  display: block;
+}
+span.run78 {
+  background-color: rgb(255, 240, 178);
+  display: block;
+}
+span.run79 {
+  background-color: rgb(255, 238, 178);
+  display: block;
+}
+span.run80 {
+  background-color: rgb(255, 234, 178);
+  display: block;
+}
+span.run81 {
+  background-color: rgb(255, 232, 178);
+  display: block;
+}
+span.run82 {
+  background-color: rgb(255, 229, 178);
+  display: block;
+}
+span.run83 {
+  background-color: rgb(255, 226, 178);
+  display: block;
+}
+span.run84 {
+  background-color: rgb(255, 224, 178);
+  display: block;
+}
+span.run85 {
+  background-color: rgb(255, 220, 178);
+  display: block;
+}
+span.run86 {
+  background-color: rgb(255, 218, 178);
+  display: block;
+}
+span.run87 {
+  background-color: rgb(255, 215, 178);
+  display: block;
+}
+span.run88 {
+  background-color: rgb(255, 212, 178);
+  display: block;
+}
+span.run89 {
+  background-color: rgb(255, 210, 178);
+  display: block;
+}
+span.run90 {
+  background-color: rgb(255, 206, 178);
+  display: block;
+}
+span.run91 {
+  background-color: rgb(255, 204, 178);
+  display: block;
+}
+span.run92 {
+  background-color: rgb(255, 201, 178);
+  display: block;
+}
+span.run93 {
+  background-color: rgb(255, 198, 178);
+  display: block;
+}
+span.run94 {
+  background-color: rgb(255, 196, 178);
+  display: block;
+}
+span.run95 {
+  background-color: rgb(255, 192, 178);
+  display: block;
+}
+span.run96 {
+  background-color: rgb(255, 189, 178);
+  display: block;
+}
+span.run97 {
+  background-color: rgb(255, 187, 178);
+  display: block;
+}
+span.run98 {
+  background-color: rgb(255, 184, 178);
+  display: block;
+}
+span.run99 {
+  background-color: rgb(255, 182, 178);
+  display: block;
+}
+span.run100 {
+  background-color: rgb(255, 178, 178);
+  display: block;
+}
+</style>
+    </head>
+  <body><h3>C0 code coverage information</h3>
+    <p>Generated on Thu Sep 24 15:05:47 +1000 2009 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+      </p>
+    <hr/>
+    <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
+</span><span class='marked1'>and this: this line is also marked as covered.
+</span><span class='inferred0'>Lines considered as run by rcov, but not reported by Ruby, look like this,
+</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).
+</span><span class='uncovered0'>Finally, here&apos;s a line marked as not executed.
+</span></pre>                       
+<table class='report'><thead><tr><td class='heading'>Name</td>
+      <td class='heading'>Total lines</td>
+      <td class='heading'>Lines of code</td>
+      <td class='heading'>Total coverage</td>
+      <td class='heading'>Code coverage</td>
+      </tr>
+    </thead>
+  <tbody><tr class='light'><td><a href='-Users-greg-_gem-ruby-1_8-gems-ruby-debug-0_10_3-cli-ruby-debug-commands-info_rb.html'>/Users/greg/.gem/ruby/1.8/gems/ruby-debug-0.10.3/cli/ruby-debug/commands/info.rb</a>
+        </td>
+      <td class='lines_total'><tt>469</tt>
+        </td>
+      <td class='lines_code'><tt>432</tt>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>14.7%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='15'/>
+                  <td class='uncovered' width='85'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>10.9%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='11'/>
+                  <td class='uncovered' width='89'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<pre><span class="marked0"><a name="line1"></a>  1 module Debugger
+</span><span class="marked1"><a name="line2"></a>  2   module InfoFunctions # :nodoc:
+</span><span class="marked0"><a name="line3"></a>  3     def info_catch(*args)
+</span><span class="uncovered1"><a name="line4"></a>  4       unless @state.context
+</span><span class="uncovered0"><a name="line5"></a>  5         print &quot;No frame selected.\n&quot;
+</span><span class="uncovered1"><a name="line6"></a>  6         return 
+</span><span class="uncovered0"><a name="line7"></a>  7       end
+</span><span class="uncovered1"><a name="line8"></a>  8       if Debugger.catchpoints and not Debugger.catchpoints.empty?
+</span><span class="uncovered0"><a name="line9"></a>  9         # FIXME: show whether Exception is valid or not
+</span><span class="uncovered1"><a name="line10"></a> 10         # print &quot;Exception: is_a?(Class)\n&quot;
+</span><span class="uncovered0"><a name="line11"></a> 11         Debugger.catchpoints.each do |exception, hits|
+</span><span class="uncovered1"><a name="line12"></a> 12           # print &quot;#{exception}: #{exception.is_a?(Class)}\n&quot;
+</span><span class="uncovered0"><a name="line13"></a> 13            print &quot;#{exception}\n&quot;
+</span><span class="uncovered1"><a name="line14"></a> 14         end
+</span><span class="uncovered0"><a name="line15"></a> 15       else
+</span><span class="uncovered1"><a name="line16"></a> 16         print &quot;No exceptions set to be caught.\n&quot;
+</span><span class="uncovered0"><a name="line17"></a> 17       end
+</span><span class="uncovered1"><a name="line18"></a> 18     end
+</span><span class="uncovered0"><a name="line19"></a> 19   end
+</span><span class="inferred1"><a name="line20"></a> 20 
+</span><span class="inferred0"><a name="line21"></a> 21   # Implements debugger &quot;info&quot; command.
+</span><span class="marked1"><a name="line22"></a> 22   class InfoCommand &lt; Command
+</span><span class="marked0"><a name="line23"></a> 23     self.allow_in_control = true
+</span><span class="uncovered1"><a name="line24"></a> 24     Subcommands = 
+</span><span class="uncovered0"><a name="line25"></a> 25       [
+</span><span class="uncovered1"><a name="line26"></a> 26        ['args', 1, 'Argument variables of current stack frame'],
+</span><span class="uncovered0"><a name="line27"></a> 27        ['breakpoints', 1, 'Status of user-settable breakpoints',
+</span><span class="uncovered1"><a name="line28"></a> 28         'Without argument, list info about all breakpoints.  With an
+</span><span class="uncovered0"><a name="line29"></a> 29 integer argument, list info on that breakpoint.'],
+</span><span class="uncovered1"><a name="line30"></a> 30        ['catch', 3, 'Exceptions that can be caught in the current stack frame'],
+</span><span class="uncovered0"><a name="line31"></a> 31        ['display', 2, 'Expressions to display when program stops'],
+</span><span class="uncovered1"><a name="line32"></a> 32        ['file', 4, 'Info about a particular file read in',
+</span><span class="uncovered0"><a name="line33"></a> 33 '
+</span><span class="uncovered1"><a name="line34"></a> 34 After the file name is supplied, you can list file attributes that
+</span><span class="uncovered0"><a name="line35"></a> 35 you wish to see.
+</span><span class="uncovered1"><a name="line36"></a> 36 
+</span><span class="uncovered0"><a name="line37"></a> 37 Attributes include: &quot;all&quot;, &quot;basic&quot;, &quot;breakpoint&quot;, &quot;lines&quot;, &quot;mtime&quot;, &quot;path&quot; 
+</span><span class="uncovered1"><a name="line38"></a> 38 and &quot;sha1&quot;.'],
+</span><span class="uncovered0"><a name="line39"></a> 39        ['files', 5, 'File names and timestamps of files read in'],
+</span><span class="uncovered1"><a name="line40"></a> 40        ['global_variables', 2, 'Global variables'],
+</span><span class="uncovered0"><a name="line41"></a> 41        ['instance_variables', 2, 
+</span><span class="uncovered1"><a name="line42"></a> 42         'Instance variables of the current stack frame'],
+</span><span class="uncovered0"><a name="line43"></a> 43        ['line', 2, 
+</span><span class="uncovered1"><a name="line44"></a> 44         'Line number and file name of current position in source file'],
+</span><span class="uncovered0"><a name="line45"></a> 45        ['locals', 2, 'Local variables of the current stack frame'],
+</span><span class="uncovered1"><a name="line46"></a> 46        ['program', 2, 'Execution status of the program'],
+</span><span class="uncovered0"><a name="line47"></a> 47        ['stack', 2, 'Backtrace of the stack'],
+</span><span class="uncovered1"><a name="line48"></a> 48        ['thread', 6,  'List info about thread NUM', '
+</span><span class="uncovered0"><a name="line49"></a> 49 If no thread number is given, we list info for all threads. \'terse\' and \'verbose\' 
+</span><span class="uncovered1"><a name="line50"></a> 50 options are possible. If terse, just give summary thread name information. See 
+</span><span class="uncovered0"><a name="line51"></a> 51 &quot;help info threads&quot; for more detail about this summary information.
+</span><span class="uncovered1"><a name="line52"></a> 52 
+</span><span class="uncovered0"><a name="line53"></a> 53 If \'verbose\' appended to the end of the command, then the entire
+</span><span class="uncovered1"><a name="line54"></a> 54 stack trace is given for each thread.'],
+</span><span class="uncovered0"><a name="line55"></a> 55        ['threads', 7, 'information of currently-known threads', '
+</span><span class="uncovered1"><a name="line56"></a> 56 This information includes whether the thread is current (+), if it is
+</span><span class="uncovered0"><a name="line57"></a> 57 suspended ($), or ignored (!).  The thread number and the top stack
+</span><span class="uncovered1"><a name="line58"></a> 58 item. If \'verbose\' is given then the entire stack frame is shown.'],
+</span><span class="uncovered0"><a name="line59"></a> 59        ['variables', 1, 
+</span><span class="uncovered1"><a name="line60"></a> 60         'Local and instance variables of the current stack frame']
+</span><span class="inferred0"><a name="line61"></a> 61       ].map do |name, min, short_help, long_help| 
+</span><span class="marked1"><a name="line62"></a> 62       SubcmdStruct.new(name, min, short_help, long_help)
+</span><span class="marked0"><a name="line63"></a> 63     end unless defined?(Subcommands)
+</span><span class="uncovered1"><a name="line64"></a> 64 
+</span><span class="uncovered0"><a name="line65"></a> 65     InfoFileSubcommands = 
+</span><span class="uncovered1"><a name="line66"></a> 66       [
+</span><span class="uncovered0"><a name="line67"></a> 67        ['all', 1, 
+</span><span class="uncovered1"><a name="line68"></a> 68         'All file information available - breakpoints, lines, mtime, path, and sha1'],
+</span><span class="uncovered0"><a name="line69"></a> 69        ['basic', 2, 
+</span><span class="uncovered1"><a name="line70"></a> 70         'basic information - path, number of lines'],
+</span><span class="uncovered0"><a name="line71"></a> 71        ['breakpoints', 2, 'Show trace line numbers',
+</span><span class="uncovered1"><a name="line72"></a> 72         'These are the line number where a breakpoint can be set.'],
+</span><span class="uncovered0"><a name="line73"></a> 73        ['lines', 1, 'Show number of lines in the file'],
+</span><span class="uncovered1"><a name="line74"></a> 74        ['mtime', 1, 'Show modification time of file'],
+</span><span class="uncovered0"><a name="line75"></a> 75        ['path', 4, 'Show full file path name for file'],
+</span><span class="uncovered1"><a name="line76"></a> 76        ['sha1', 1, 'Show SHA1 hash of contents of the file']
+</span><span class="inferred0"><a name="line77"></a> 77       ].map do |name, min, short_help, long_help|
+</span><span class="marked1"><a name="line78"></a> 78       SubcmdStruct.new(name, min, short_help, long_help)
+</span><span class="marked0"><a name="line79"></a> 79     end unless defined?(InfoFileSubcommands)
+</span><span class="inferred1"><a name="line80"></a> 80 
+</span><span class="inferred0"><a name="line81"></a> 81     InfoThreadSubcommands = 
+</span><span class="inferred1"><a name="line82"></a> 82       [
+</span><span class="inferred0"><a name="line83"></a> 83        ['terse', 1,   'summary information'],
+</span><span class="inferred1"><a name="line84"></a> 84        ['verbose', 1, 'summary information and stack frame info'],
+</span><span class="inferred0"><a name="line85"></a> 85       ].map do |name, min, short_help, long_help|
+</span><span class="marked1"><a name="line86"></a> 86       SubcmdStruct.new(name, min, short_help, long_help)
+</span><span class="marked0"><a name="line87"></a> 87     end unless defined?(InfoThreadSubcommands)
+</span><span class="inferred1"><a name="line88"></a> 88 
+</span><span class="marked0"><a name="line89"></a> 89     def regexp
+</span><span class="uncovered1"><a name="line90"></a> 90       /^\s* i(?:nfo)? (?:\s+(.*))?$/ix
+</span><span class="uncovered0"><a name="line91"></a> 91     end
+</span><span class="inferred1"><a name="line92"></a> 92     
+</span><span class="marked0"><a name="line93"></a> 93     def execute
+</span><span class="uncovered1"><a name="line94"></a> 94       if @match[1].empty?
+</span><span class="uncovered0"><a name="line95"></a> 95         errmsg &quot;\&quot;info\&quot; must be followed by the name of an info command:\n&quot;
+</span><span class="uncovered1"><a name="line96"></a> 96         print &quot;List of info subcommands:\n\n&quot;
+</span><span class="uncovered0"><a name="line97"></a> 97         for subcmd in Subcommands do
+</span><span class="uncovered1"><a name="line98"></a> 98           print &quot;info #{subcmd.name} -- #{subcmd.short_help}\n&quot;
+</span><span class="uncovered0"><a name="line99"></a> 99         end
+</span><span class="uncovered1"><a name="line100"></a>100       else
+</span><span class="uncovered0"><a name="line101"></a>101         args = @match[1].split(/[ \t]+/)
+</span><span class="uncovered1"><a name="line102"></a>102         param = args.shift
+</span><span class="uncovered0"><a name="line103"></a>103         subcmd = find(Subcommands, param)
+</span><span class="uncovered1"><a name="line104"></a>104         if subcmd
+</span><span class="uncovered0"><a name="line105"></a>105           send(&quot;info_#{subcmd.name}&quot;, *args)
+</span><span class="uncovered1"><a name="line106"></a>106         else
+</span><span class="uncovered0"><a name="line107"></a>107           errmsg &quot;Unknown info command #{param}\n&quot;
+</span><span class="uncovered1"><a name="line108"></a>108         end
+</span><span class="uncovered0"><a name="line109"></a>109       end
+</span><span class="uncovered1"><a name="line110"></a>110     end
+</span><span class="inferred0"><a name="line111"></a>111     
+</span><span class="marked1"><a name="line112"></a>112     def info_args(*args)
+</span><span class="uncovered0"><a name="line113"></a>113       unless @state.context
+</span><span class="uncovered1"><a name="line114"></a>114         print &quot;No frame selected.\n&quot;
+</span><span class="uncovered0"><a name="line115"></a>115         return 
+</span><span class="uncovered1"><a name="line116"></a>116       end
+</span><span class="uncovered0"><a name="line117"></a>117       locals = @state.context.frame_locals(@state.frame_pos)
+</span><span class="uncovered1"><a name="line118"></a>118       args = @state.context.frame_args(@state.frame_pos)
+</span><span class="uncovered0"><a name="line119"></a>119       args.each do |name|
+</span><span class="uncovered1"><a name="line120"></a>120         s = &quot;#{name} = #{locals[name].inspect}&quot;
+</span><span class="uncovered0"><a name="line121"></a>121         if s.size &gt; self.class.settings[:width]
+</span><span class="uncovered1"><a name="line122"></a>122           s[self.class.settings[:width]-3 .. -1] = &quot;...&quot;
+</span><span class="uncovered0"><a name="line123"></a>123         end
+</span><span class="uncovered1"><a name="line124"></a>124         print &quot;#{s}\n&quot;
+</span><span class="uncovered0"><a name="line125"></a>125       end
+</span><span class="uncovered1"><a name="line126"></a>126     end
+</span><span class="inferred0"><a name="line127"></a>127     
+</span><span class="marked1"><a name="line128"></a>128     def info_breakpoints(*args)
+</span><span class="uncovered0"><a name="line129"></a>129       unless @state.context
+</span><span class="uncovered1"><a name="line130"></a>130         print &quot;info breakpoints not available here.\n&quot;
+</span><span class="uncovered0"><a name="line131"></a>131         return 
+</span><span class="uncovered1"><a name="line132"></a>132       end
+</span><span class="uncovered0"><a name="line133"></a>133       unless Debugger.breakpoints.empty?
+</span><span class="uncovered1"><a name="line134"></a>134         brkpts = Debugger.breakpoints.sort_by{|b| b.id}
+</span><span class="uncovered0"><a name="line135"></a>135         unless args.empty?
+</span><span class="uncovered1"><a name="line136"></a>136           a = args.map{|a| a.to_i}
+</span><span class="uncovered0"><a name="line137"></a>137           brkpts = brkpts.select{|b| a.member?(b.id)}
+</span><span class="uncovered1"><a name="line138"></a>138           if brkpts.empty?
+</span><span class="uncovered0"><a name="line139"></a>139             errmsg &quot;No breakpoints found among list given.\n&quot;
+</span><span class="uncovered1"><a name="line140"></a>140             return
+</span><span class="uncovered0"><a name="line141"></a>141           end
+</span><span class="uncovered1"><a name="line142"></a>142         end
+</span><span class="uncovered0"><a name="line143"></a>143         print &quot;Num Enb What\n&quot;
+</span><span class="uncovered1"><a name="line144"></a>144         brkpts.each do |b|
+</span><span class="uncovered0"><a name="line145"></a>145           if b.expr.nil?
+</span><span class="uncovered1"><a name="line146"></a>146             print &quot;%3d %s   at %s:%s\n&quot;, 
+</span><span class="uncovered0"><a name="line147"></a>147             b.id, (b.enabled? ? 'y' : 'n'), b.source, b.pos
+</span><span class="uncovered1"><a name="line148"></a>148           else
+</span><span class="uncovered0"><a name="line149"></a>149             print &quot;%3d %s   at %s:%s if %s\n&quot;, 
+</span><span class="uncovered1"><a name="line150"></a>150             b.id, (b.enabled? ? 'y' : 'n'), b.source, b.pos, b.expr
+</span><span class="uncovered0"><a name="line151"></a>151           end
+</span><span class="uncovered1"><a name="line152"></a>152           hits = b.hit_count
+</span><span class="uncovered0"><a name="line153"></a>153           if hits &gt; 0
+</span><span class="uncovered1"><a name="line154"></a>154             s = (hits &gt; 1) ? 's' : ''
+</span><span class="uncovered0"><a name="line155"></a>155             print &quot;\tbreakpoint already hit #{hits} time#{s}\n&quot;
+</span><span class="uncovered1"><a name="line156"></a>156           end
+</span><span class="uncovered0"><a name="line157"></a>157         end
+</span><span class="uncovered1"><a name="line158"></a>158       else
+</span><span class="uncovered0"><a name="line159"></a>159         print &quot;No breakpoints.\n&quot;
+</span><span class="uncovered1"><a name="line160"></a>160       end
+</span><span class="uncovered0"><a name="line161"></a>161     end
+</span><span class="inferred1"><a name="line162"></a>162     
+</span><span class="marked0"><a name="line163"></a>163     def info_display(*args)
+</span><span class="uncovered1"><a name="line164"></a>164       unless @state.context
+</span><span class="uncovered0"><a name="line165"></a>165         print &quot;info display not available here.\n&quot;
+</span><span class="uncovered1"><a name="line166"></a>166         return 
+</span><span class="uncovered0"><a name="line167"></a>167       end
+</span><span class="uncovered1"><a name="line168"></a>168       if @state.display.find{|d| d[0]}
+</span><span class="uncovered0"><a name="line169"></a>169         print &quot;Auto-display expressions now in effect:\n&quot;
+</span><span class="uncovered1"><a name="line170"></a>170         print &quot;Num Enb Expression\n&quot;
+</span><span class="uncovered0"><a name="line171"></a>171         n = 1
+</span><span class="uncovered1"><a name="line172"></a>172         for d in @state.display
+</span><span class="uncovered0"><a name="line173"></a>173           print &quot;%3d: %s  %s\n&quot;, n, (d[0] ? 'y' : 'n'), d[1] if
+</span><span class="uncovered1"><a name="line174"></a>174             d[0] != nil
+</span><span class="uncovered0"><a name="line175"></a>175           n += 1
+</span><span class="uncovered1"><a name="line176"></a>176         end
+</span><span class="uncovered0"><a name="line177"></a>177       else
+</span><span class="uncovered1"><a name="line178"></a>178         print &quot;There are no auto-display expressions now.\n&quot;
+</span><span class="uncovered0"><a name="line179"></a>179       end
+</span><span class="uncovered1"><a name="line180"></a>180     end
+</span><span class="inferred0"><a name="line181"></a>181     
+</span><span class="marked1"><a name="line182"></a>182     def info_file(*args)
+</span><span class="uncovered0"><a name="line183"></a>183       unless args[0] 
+</span><span class="uncovered1"><a name="line184"></a>184         info_files
+</span><span class="uncovered0"><a name="line185"></a>185         return
+</span><span class="uncovered1"><a name="line186"></a>186       end
+</span><span class="uncovered0"><a name="line187"></a>187       file = args[0]
+</span><span class="uncovered1"><a name="line188"></a>188       param =  args[1]
+</span><span class="uncovered0"><a name="line189"></a>189       
+</span><span class="uncovered1"><a name="line190"></a>190       param = 'basic' unless param
+</span><span class="uncovered0"><a name="line191"></a>191       subcmd = find(InfoFileSubcommands, param)
+</span><span class="uncovered1"><a name="line192"></a>192       unless subcmd
+</span><span class="uncovered0"><a name="line193"></a>193         errmsg &quot;Invalid parameter #{param}\n&quot;
+</span><span class="uncovered1"><a name="line194"></a>194         return
+</span><span class="uncovered0"><a name="line195"></a>195       end
+</span><span class="uncovered1"><a name="line196"></a>196       
+</span><span class="uncovered0"><a name="line197"></a>197       unless LineCache::cached?(file)
+</span><span class="uncovered1"><a name="line198"></a>198         unless LineCache::cached_script?(file)
+</span><span class="uncovered0"><a name="line199"></a>199           print &quot;File #{file} is not cached\n&quot;
+</span><span class="uncovered1"><a name="line200"></a>200           return
+</span><span class="uncovered0"><a name="line201"></a>201         end
+</span><span class="uncovered1"><a name="line202"></a>202         LineCache::cache(file, Command.settings[:reload_source_on_change])
+</span><span class="uncovered0"><a name="line203"></a>203       end
+</span><span class="uncovered1"><a name="line204"></a>204       
+</span><span class="uncovered0"><a name="line205"></a>205       print &quot;File %s&quot;, file
+</span><span class="uncovered1"><a name="line206"></a>206       path = LineCache.path(file)
+</span><span class="uncovered0"><a name="line207"></a>207       if %w(all basic path).member?(subcmd.name) and path != file
+</span><span class="uncovered1"><a name="line208"></a>208         print &quot; - %s\n&quot;, path 
+</span><span class="uncovered0"><a name="line209"></a>209       else
+</span><span class="uncovered1"><a name="line210"></a>210         print &quot;\n&quot;
+</span><span class="uncovered0"><a name="line211"></a>211       end
+</span><span class="uncovered1"><a name="line212"></a>212 
+</span><span class="uncovered0"><a name="line213"></a>213       if %w(all basic lines).member?(subcmd.name)
+</span><span class="uncovered1"><a name="line214"></a>214         lines = LineCache.size(file)
+</span><span class="uncovered0"><a name="line215"></a>215         print &quot;\t %d lines\n&quot;, lines if lines
+</span><span class="uncovered1"><a name="line216"></a>216       end
+</span><span class="uncovered0"><a name="line217"></a>217 
+</span><span class="uncovered1"><a name="line218"></a>218       if %w(all breakpoints).member?(subcmd.name)
+</span><span class="uncovered0"><a name="line219"></a>219         breakpoints = LineCache.trace_line_numbers(file)
+</span><span class="uncovered1"><a name="line220"></a>220         if breakpoints
+</span><span class="uncovered0"><a name="line221"></a>221           print &quot;\tbreakpoint line numbers:\n&quot; 
+</span><span class="uncovered1"><a name="line222"></a>222           print columnize(breakpoints.to_a.sort, self.class.settings[:width])
+</span><span class="uncovered0"><a name="line223"></a>223         end
+</span><span class="uncovered1"><a name="line224"></a>224       end
+</span><span class="uncovered0"><a name="line225"></a>225 
+</span><span class="uncovered1"><a name="line226"></a>226       if %w(all mtime).member?(subcmd.name)
+</span><span class="uncovered0"><a name="line227"></a>227         stat = LineCache.stat(file)
+</span><span class="uncovered1"><a name="line228"></a>228         print &quot;\t%s\n&quot;, stat.mtime if stat
+</span><span class="uncovered0"><a name="line229"></a>229       end
+</span><span class="uncovered1"><a name="line230"></a>230       if %w(all sha1).member?(subcmd.name)
+</span><span class="uncovered0"><a name="line231"></a>231         print &quot;\t%s\n&quot;, LineCache.sha1(file)
+</span><span class="uncovered1"><a name="line232"></a>232       end
+</span><span class="uncovered0"><a name="line233"></a>233     end
+</span><span class="inferred1"><a name="line234"></a>234     
+</span><span class="marked0"><a name="line235"></a>235     def info_files(*args)
+</span><span class="uncovered1"><a name="line236"></a>236       files = LineCache::cached_files
+</span><span class="uncovered0"><a name="line237"></a>237       files += SCRIPT_LINES__.keys unless 'stat' == args[0] 
+</span><span class="uncovered1"><a name="line238"></a>238       files.uniq.sort.each do |file|
+</span><span class="uncovered0"><a name="line239"></a>239         stat = LineCache::stat(file)
+</span><span class="uncovered1"><a name="line240"></a>240         path = LineCache::path(file)
+</span><span class="uncovered0"><a name="line241"></a>241         print &quot;File %s&quot;, file
+</span><span class="uncovered1"><a name="line242"></a>242         if path and path != file
+</span><span class="uncovered0"><a name="line243"></a>243           print &quot; - %s\n&quot;, path 
+</span><span class="uncovered1"><a name="line244"></a>244         else
+</span><span class="uncovered0"><a name="line245"></a>245           print &quot;\n&quot;
+</span><span class="uncovered1"><a name="line246"></a>246         end
+</span><span class="uncovered0"><a name="line247"></a>247         print &quot;\t%s\n&quot;, stat.mtime if stat
+</span><span class="uncovered1"><a name="line248"></a>248       end
+</span><span class="uncovered0"><a name="line249"></a>249     end
+</span><span class="inferred1"><a name="line250"></a>250     
+</span><span class="marked0"><a name="line251"></a>251     def info_instance_variables(*args)
+</span><span class="uncovered1"><a name="line252"></a>252       unless @state.context
+</span><span class="uncovered0"><a name="line253"></a>253         print &quot;info instance_variables not available here.\n&quot;
+</span><span class="uncovered1"><a name="line254"></a>254         return 
+</span><span class="uncovered0"><a name="line255"></a>255       end
+</span><span class="uncovered1"><a name="line256"></a>256       obj = debug_eval('self')
+</span><span class="uncovered0"><a name="line257"></a>257       var_list(obj.instance_variables)
+</span><span class="uncovered1"><a name="line258"></a>258     end
+</span><span class="inferred0"><a name="line259"></a>259     
+</span><span class="marked1"><a name="line260"></a>260     def info_line(*args)
+</span><span class="uncovered0"><a name="line261"></a>261       unless @state.context
+</span><span class="uncovered1"><a name="line262"></a>262         errmsg &quot;info line not available here.\n&quot;
+</span><span class="uncovered0"><a name="line263"></a>263         return 
+</span><span class="uncovered1"><a name="line264"></a>264       end
+</span><span class="uncovered0"><a name="line265"></a>265       print &quot;Line %d of \&quot;%s\&quot;\n&quot;,  @state.line, @state.file
+</span><span class="uncovered1"><a name="line266"></a>266     end
+</span><span class="inferred0"><a name="line267"></a>267     
+</span><span class="marked1"><a name="line268"></a>268     def info_locals(*args)
+</span><span class="uncovered0"><a name="line269"></a>269       unless @state.context
+</span><span class="uncovered1"><a name="line270"></a>270         errmsg &quot;info line not available here.\n&quot;
+</span><span class="uncovered0"><a name="line271"></a>271         return 
+</span><span class="uncovered1"><a name="line272"></a>272       end
+</span><span class="uncovered0"><a name="line273"></a>273       locals = @state.context.frame_locals(@state.frame_pos)
+</span><span class="uncovered1"><a name="line274"></a>274       locals.keys.sort.each do |name|
+</span><span class="uncovered0"><a name="line275"></a>275         ### FIXME: make a common routine
+</span><span class="uncovered1"><a name="line276"></a>276         begin
+</span><span class="uncovered0"><a name="line277"></a>277           s = &quot;#{name} = #{locals[name].inspect}&quot;
+</span><span class="uncovered1"><a name="line278"></a>278         rescue
+</span><span class="uncovered0"><a name="line279"></a>279           begin
+</span><span class="uncovered1"><a name="line280"></a>280           s = &quot;#{name} = #{locals[name].to_s}&quot;
+</span><span class="uncovered0"><a name="line281"></a>281           rescue
+</span><span class="uncovered1"><a name="line282"></a>282             s = &quot;*Error in evaluation*&quot;
+</span><span class="uncovered0"><a name="line283"></a>283           end
+</span><span class="uncovered1"><a name="line284"></a>284         end  
+</span><span class="uncovered0"><a name="line285"></a>285         if s.size &gt; self.class.settings[:width]
+</span><span class="uncovered1"><a name="line286"></a>286           s[self.class.settings[:width]-3 .. -1] = &quot;...&quot;
+</span><span class="uncovered0"><a name="line287"></a>287         end
+</span><span class="uncovered1"><a name="line288"></a>288         print &quot;#{s}\n&quot;
+</span><span class="uncovered0"><a name="line289"></a>289       end
+</span><span class="uncovered1"><a name="line290"></a>290     end
+</span><span class="inferred0"><a name="line291"></a>291     
+</span><span class="marked1"><a name="line292"></a>292     def info_program(*args)
+</span><span class="uncovered0"><a name="line293"></a>293       if not @state.context
+</span><span class="uncovered1"><a name="line294"></a>294         print &quot;The program being debugged is not being run.\n&quot;
+</span><span class="uncovered0"><a name="line295"></a>295         return
+</span><span class="uncovered1"><a name="line296"></a>296       elsif @state.context.dead? 
+</span><span class="uncovered0"><a name="line297"></a>297         print &quot;The program crashed.\n&quot;
+</span><span class="uncovered1"><a name="line298"></a>298         if Debugger.last_exception
+</span><span class="uncovered0"><a name="line299"></a>299           print(&quot;Exception: #{Debugger.last_exception.inspect}\n&quot;)
+</span><span class="uncovered1"><a name="line300"></a>300         end
+</span><span class="uncovered0"><a name="line301"></a>301         return
+</span><span class="uncovered1"><a name="line302"></a>302       end
+</span><span class="uncovered0"><a name="line303"></a>303       
+</span><span class="uncovered1"><a name="line304"></a>304       print &quot;Program stopped. &quot;
+</span><span class="uncovered0"><a name="line305"></a>305       case @state.context.stop_reason
+</span><span class="uncovered1"><a name="line306"></a>306       when :step
+</span><span class="uncovered0"><a name="line307"></a>307         print &quot;It stopped after stepping, next'ing or initial start.\n&quot;
+</span><span class="uncovered1"><a name="line308"></a>308       when :breakpoint
+</span><span class="uncovered0"><a name="line309"></a>309         print(&quot;It stopped at a breakpoint.\n&quot;)
+</span><span class="uncovered1"><a name="line310"></a>310       when :catchpoint
+</span><span class="uncovered0"><a name="line311"></a>311         print(&quot;It stopped at a catchpoint.\n&quot;)
+</span><span class="uncovered1"><a name="line312"></a>312       when :catchpoint
+</span><span class="uncovered0"><a name="line313"></a>313         print(&quot;It stopped at a catchpoint.\n&quot;)
+</span><span class="uncovered1"><a name="line314"></a>314       else
+</span><span class="uncovered0"><a name="line315"></a>315         print &quot;unknown reason: %s\n&quot; % @state.context.stop_reason.to_s
+</span><span class="uncovered1"><a name="line316"></a>316       end
+</span><span class="uncovered0"><a name="line317"></a>317     end
+</span><span class="inferred1"><a name="line318"></a>318     
+</span><span class="marked0"><a name="line319"></a>319     def info_stack(*args)
+</span><span class="uncovered1"><a name="line320"></a>320       if not @state.context
+</span><span class="uncovered0"><a name="line321"></a>321         errmsg &quot;info stack not available here.\n&quot;
+</span><span class="uncovered1"><a name="line322"></a>322         return
+</span><span class="uncovered0"><a name="line323"></a>323       end
+</span><span class="uncovered1"><a name="line324"></a>324       (0...@state.context.stack_size).each do |idx|
+</span><span class="uncovered0"><a name="line325"></a>325         if idx == @state.frame_pos
+</span><span class="uncovered1"><a name="line326"></a>326           print &quot;--&gt; &quot;
+</span><span class="uncovered0"><a name="line327"></a>327         else
+</span><span class="uncovered1"><a name="line328"></a>328           print &quot;    &quot;
+</span><span class="uncovered0"><a name="line329"></a>329         end
+</span><span class="uncovered1"><a name="line330"></a>330         print_frame(idx)
+</span><span class="uncovered0"><a name="line331"></a>331       end
+</span><span class="uncovered1"><a name="line332"></a>332     end
+</span><span class="inferred0"><a name="line333"></a>333 
+</span><span class="marked1"><a name="line334"></a>334     def info_thread_preamble(arg)
+</span><span class="uncovered0"><a name="line335"></a>335       if not @state.context
+</span><span class="uncovered1"><a name="line336"></a>336         errmsg &quot;info threads not available here.\n&quot;
+</span><span class="uncovered0"><a name="line337"></a>337         return false, false
+</span><span class="uncovered1"><a name="line338"></a>338       end
+</span><span class="uncovered0"><a name="line339"></a>339       verbose = if arg
+</span><span class="uncovered1"><a name="line340"></a>340         subcmd = find(InfoThreadSubcommands, arg)
+</span><span class="uncovered0"><a name="line341"></a>341         unless subcmd
+</span><span class="uncovered1"><a name="line342"></a>342           errmsg &quot;'terse' or 'verbose' expected. Got '#{arg}'\n&quot;
+</span><span class="uncovered0"><a name="line343"></a>343           return false, false
+</span><span class="uncovered1"><a name="line344"></a>344         end
+</span><span class="uncovered0"><a name="line345"></a>345         'verbose' == subcmd.name
+</span><span class="uncovered1"><a name="line346"></a>346       else
+</span><span class="uncovered0"><a name="line347"></a>347         false
+</span><span class="uncovered1"><a name="line348"></a>348       end
+</span><span class="uncovered0"><a name="line349"></a>349       return true, verbose
+</span><span class="uncovered1"><a name="line350"></a>350     end
+</span><span class="marked0"><a name="line351"></a>351     private :info_thread_preamble
+</span><span class="inferred1"><a name="line352"></a>352       
+</span><span class="marked0"><a name="line353"></a>353     def info_threads(*args)
+</span><span class="uncovered1"><a name="line354"></a>354       ok, verbose = info_thread_preamble(args[0])
+</span><span class="uncovered0"><a name="line355"></a>355       return unless ok
+</span><span class="uncovered1"><a name="line356"></a>356       threads = Debugger.contexts.sort_by{|c| c.thnum}.each do |c|
+</span><span class="uncovered0"><a name="line357"></a>357         display_context(c, !verbose)
+</span><span class="uncovered1"><a name="line358"></a>358         if verbose and not c.ignored?
+</span><span class="uncovered0"><a name="line359"></a>359           (0...c.stack_size).each do |idx|
+</span><span class="uncovered1"><a name="line360"></a>360             print &quot;\t&quot;
+</span><span class="uncovered0"><a name="line361"></a>361             print_frame(idx, false, c)
+</span><span class="uncovered1"><a name="line362"></a>362           end
+</span><span class="uncovered0"><a name="line363"></a>363         end
+</span><span class="uncovered1"><a name="line364"></a>364       end
+</span><span class="uncovered0"><a name="line365"></a>365     end
+</span><span class="inferred1"><a name="line366"></a>366     
+</span><span class="marked0"><a name="line367"></a>367     def info_thread(*args)
+</span><span class="uncovered1"><a name="line368"></a>368       unless args[0]
+</span><span class="uncovered0"><a name="line369"></a>369         info_threads(args[0])
+</span><span class="uncovered1"><a name="line370"></a>370         return
+</span><span class="uncovered0"><a name="line371"></a>371       end
+</span><span class="uncovered1"><a name="line372"></a>372       ok, verbose = info_thread_preamble(args[1])
+</span><span class="uncovered0"><a name="line373"></a>373       return unless ok
+</span><span class="uncovered1"><a name="line374"></a>374       c = parse_thread_num(&quot;info thread&quot; , args[0])
+</span><span class="uncovered0"><a name="line375"></a>375       return unless c
+</span><span class="uncovered1"><a name="line376"></a>376       display_context(c, !verbose)
+</span><span class="uncovered0"><a name="line377"></a>377       if verbose and not c.ignored?
+</span><span class="uncovered1"><a name="line378"></a>378         (0...c.stack_size).each do |idx|
+</span><span class="uncovered0"><a name="line379"></a>379           print &quot;\t&quot;
+</span><span class="uncovered1"><a name="line380"></a>380           print_frame(idx, false, c) 
+</span><span class="uncovered0"><a name="line381"></a>381         end
+</span><span class="uncovered1"><a name="line382"></a>382       end
+</span><span class="uncovered0"><a name="line383"></a>383     end
+</span><span class="inferred1"><a name="line384"></a>384     
+</span><span class="marked0"><a name="line385"></a>385     def info_global_variables(*args)
+</span><span class="uncovered1"><a name="line386"></a>386       unless @state.context
+</span><span class="uncovered0"><a name="line387"></a>387         errmsg &quot;info global_variables not available here.\n&quot;
+</span><span class="uncovered1"><a name="line388"></a>388         return 
+</span><span class="uncovered0"><a name="line389"></a>389       end
+</span><span class="uncovered1"><a name="line390"></a>390       var_list(global_variables)
+</span><span class="uncovered0"><a name="line391"></a>391     end
+</span><span class="inferred1"><a name="line392"></a>392     
+</span><span class="marked0"><a name="line393"></a>393     def info_variables(*args)
+</span><span class="uncovered1"><a name="line394"></a>394       if not @state.context
+</span><span class="uncovered0"><a name="line395"></a>395         errmsg &quot;info variables not available here.\n&quot;
+</span><span class="uncovered1"><a name="line396"></a>396         return
+</span><span class="uncovered0"><a name="line397"></a>397       end
+</span><span class="uncovered1"><a name="line398"></a>398       obj = debug_eval('self')
+</span><span class="uncovered0"><a name="line399"></a>399       locals = @state.context.frame_locals(@state.frame_pos)
+</span><span class="uncovered1"><a name="line400"></a>400       locals['self'] = @state.context.frame_self(@state.frame_pos)
+</span><span class="uncovered0"><a name="line401"></a>401       locals.keys.sort.each do |name|
+</span><span class="uncovered1"><a name="line402"></a>402         next if name =~ /^__dbg_/ # skip debugger pollution
+</span><span class="uncovered0"><a name="line403"></a>403         ### FIXME: make a common routine
+</span><span class="uncovered1"><a name="line404"></a>404         begin
+</span><span class="uncovered0"><a name="line405"></a>405           s = &quot;#{name} = #{locals[name].inspect}&quot;
+</span><span class="uncovered1"><a name="line406"></a>406         rescue
+</span><span class="uncovered0"><a name="line407"></a>407           begin
+</span><span class="uncovered1"><a name="line408"></a>408             s = &quot;#{name} = #{locals[name].to_s}&quot;
+</span><span class="uncovered0"><a name="line409"></a>409           rescue
+</span><span class="uncovered1"><a name="line410"></a>410             s = &quot;#{name} = *Error in evaluation*&quot;
+</span><span class="uncovered0"><a name="line411"></a>411           end
+</span><span class="uncovered1"><a name="line412"></a>412         end
+</span><span class="uncovered0"><a name="line413"></a>413         if s.size &gt; self.class.settings[:width]
+</span><span class="uncovered1"><a name="line414"></a>414           s[self.class.settings[:width]-3 .. -1] = &quot;...&quot;
+</span><span class="uncovered0"><a name="line415"></a>415         end
+</span><span class="inferred1"><a name="line416"></a>416         s.gsub!('%', '%%')  # protect against printf format strings
+</span><span class="inferred0"><a name="line417"></a>417         print &quot;#{s}\n&quot;
+</span><span class="inferred1"><a name="line418"></a>418       end
+</span><span class="inferred0"><a name="line419"></a>419       var_list(obj.instance_variables, obj.instance_eval{binding()})
+</span><span class="inferred1"><a name="line420"></a>420       var_class_self
+</span><span class="inferred0"><a name="line421"></a>421     end
+</span><span class="inferred1"><a name="line422"></a>422     
+</span><span class="marked0"><a name="line423"></a>423     class &lt;&lt; self
+</span><span class="marked1"><a name="line424"></a>424       def help_command
+</span><span class="inferred0"><a name="line425"></a>425         'info'
+</span><span class="inferred1"><a name="line426"></a>426       end
+</span><span class="inferred0"><a name="line427"></a>427 
+</span><span class="marked1"><a name="line428"></a>428       def help(args)
+</span><span class="uncovered0"><a name="line429"></a>429         if args[1] 
+</span><span class="uncovered1"><a name="line430"></a>430           s = args[1]
+</span><span class="uncovered0"><a name="line431"></a>431           subcmd = Subcommands.find do |try_subcmd| 
+</span><span class="uncovered1"><a name="line432"></a>432             (s.size &gt;= try_subcmd.min) and
+</span><span class="uncovered0"><a name="line433"></a>433               (try_subcmd.name[0..s.size-1] == s)
+</span><span class="uncovered1"><a name="line434"></a>434           end
+</span><span class="uncovered0"><a name="line435"></a>435           if subcmd
+</span><span class="uncovered1"><a name="line436"></a>436             str = subcmd.short_help + '.'
+</span><span class="uncovered0"><a name="line437"></a>437             if 'file' == subcmd.name and args[2]
+</span><span class="uncovered1"><a name="line438"></a>438               s = args[2]
+</span><span class="uncovered0"><a name="line439"></a>439               subsubcmd = InfoFileSubcommands.find do |try_subcmd|
+</span><span class="uncovered1"><a name="line440"></a>440                 (s.size &gt;= try_subcmd.min) and
+</span><span class="uncovered0"><a name="line441"></a>441                   (try_subcmd.name[0..s.size-1] == s)
+</span><span class="uncovered1"><a name="line442"></a>442               end
+</span><span class="uncovered0"><a name="line443"></a>443               if subsubcmd
+</span><span class="uncovered1"><a name="line444"></a>444                 str += &quot;\n&quot; + subsubcmd.short_help + '.'
+</span><span class="uncovered0"><a name="line445"></a>445               else
+</span><span class="uncovered1"><a name="line446"></a>446                 str += &quot;\nInvalid file attribute #{args[2]}.&quot;
+</span><span class="uncovered0"><a name="line447"></a>447               end
+</span><span class="uncovered1"><a name="line448"></a>448             else
+</span><span class="uncovered0"><a name="line449"></a>449               str += &quot;\n&quot; + subcmd.long_help if subcmd.long_help
+</span><span class="uncovered1"><a name="line450"></a>450             end
+</span><span class="uncovered0"><a name="line451"></a>451             return str
+</span><span class="uncovered1"><a name="line452"></a>452           else
+</span><span class="uncovered0"><a name="line453"></a>453             return &quot;Invalid 'info' subcommand '#{args[1]}'.&quot;
+</span><span class="uncovered1"><a name="line454"></a>454           end
+</span><span class="uncovered0"><a name="line455"></a>455         end
+</span><span class="uncovered1"><a name="line456"></a>456         s = %{
+</span><span class="uncovered0"><a name="line457"></a>457           Generic command for showing things about the program being debugged.
+</span><span class="uncovered1"><a name="line458"></a>458           -- 
+</span><span class="uncovered0"><a name="line459"></a>459           List of info subcommands:
+</span><span class="uncovered1"><a name="line460"></a>460           --  
+</span><span class="uncovered0"><a name="line461"></a>461         }
+</span><span class="uncovered1"><a name="line462"></a>462         for subcmd in Subcommands do
+</span><span class="uncovered0"><a name="line463"></a>463           s += &quot;info #{subcmd.name} -- #{subcmd.short_help}\n&quot;
+</span><span class="uncovered1"><a name="line464"></a>464         end
+</span><span class="uncovered0"><a name="line465"></a>465         return s
+</span><span class="uncovered1"><a name="line466"></a>466       end
+</span><span class="uncovered0"><a name="line467"></a>467     end
+</span><span class="uncovered1"><a name="line468"></a>468   end
+</span><span class="uncovered0"><a name="line469"></a>469 end
+</span></pre><hr/>
+    <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
+   version 0.8.1.2.</p>
+<p><a href='http://validator.w3.org/check/referer'><img src='http://www.w3.org/Icons/valid-xhtml10' height='31' alt='Valid XHTML 1.0!' width='88'/>
+        </a>
+      <a href='http://jigsaw.w3.org/css-validator/check/referer'><img src='http://jigsaw.w3.org/css-validator/images/vcss' alt='Valid CSS!' style='border:0;width:88px;height:31px'/>
+        </a>
+      </p>
+    </body>
+  </html>

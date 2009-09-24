@@ -8,6 +8,5 @@ class School < ActiveRecord::Base
   has_many :people, :through => :students
   
   validates_presence_of :name
-  #validates_inclusion_of :schooltype, :in => ["primary_school", "high_school", "university"], :message => "school type of {{value}} is not valid."
 end
 

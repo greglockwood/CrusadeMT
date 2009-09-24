@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'><head><title>/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/gem_dependency.rb - C0 code coverage information</title>
+    <style type='text/css'>body { background-color: rgb(240, 240, 245); }</style>
+    <style type='text/css'>span.cross-ref-title {
+ font-size: 140%;
+}
+span.cross-ref a {
+ text-decoration: none;
+}
+span.cross-ref {
+ background-color:#f3f7fa;
+ border: 1px dashed #333;
+ margin: 1em;
+ padding: 0.5em;
+ overflow: hidden;
+}
+a.crossref-toggle {
+ text-decoration: none;
+}
+span.marked0 {
+ background-color: rgb(185, 210, 200);
+ display: block;
+}
+span.marked1 {
+ background-color: rgb(190, 215, 205);
+ display: block;
+}
+span.inferred0 {
+ background-color: rgb(175, 200, 200);
+ display: block;
+}
+span.inferred1 {
+ background-color: rgb(180, 205, 205);
+ display: block;
+}
+span.uncovered0 {
+ background-color: rgb(225, 110, 110);
+ display: block;
+}
+span.uncovered1 {
+ background-color: rgb(235, 120, 120);
+ display: block;
+}
+span.overview {
+ border-bottom: 8px solid black;
+}
+div.overview {
+ border-bottom: 8px solid black;
+}
+body {
+ font-family: verdana, arial, helvetica;
+}
+div.footer {
+ font-size: 68%;
+ margin-top: 1.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+ margin-bottom: 0.5em;
+}
+h5 {
+ margin-top: 0.5em;
+}
+.hidden {
+ display: none;
+}
+div.separator {
+ height: 10px;
+}
+/* Commented out for better readability, esp. on IE */
+/*
+table tr td, table tr th {
+ font-size: 68%;
+}
+td.value table tr td {
+ font-size: 11px;
+}
+*/
+table.percent_graph {
+ height: 12px;
+ border: #808080 1px solid;
+ empty-cells: show;
+}
+table.percent_graph td.covered {
+ height: 10px;
+ background: #00f000;
+}
+table.percent_graph td.uncovered {
+ height: 10px;
+ background: #e00000;
+}
+table.percent_graph td.NA {
+ height: 10px;
+ background: #eaeaea;
+}
+table.report {
+ border-collapse: collapse;
+ width: 100%;
+}
+table.report td.heading {
+ background: #dcecff;
+ border: #d0d0d0 1px solid;
+ font-weight: bold;
+ text-align: center;
+}
+table.report td.heading:hover {
+ background: #c0ffc0;
+}
+table.report td.text {
+ border: #d0d0d0 1px solid;
+}
+table.report td.value,
+table.report td.lines_total,
+table.report td.lines_code {
+ text-align: right;
+ border: #d0d0d0 1px solid;
+}
+table.report tr.light {
+ background-color: rgb(240, 240, 245);
+}
+table.report tr.dark {
+ background-color: rgb(230, 230, 235);
+}
+</style>
+    <script type='text/javascript'>
+// <![CDATA[
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make cross-references hidden by default
+  document.writeln( "<style type=\"text/css\">span.cross-ref { display: none }</style>" )
+  // ]]>
+</script>
+    <style type='text/css'>span.run0 {
+  background-color: rgb(178, 204, 255);
+  display: block;
+}
+span.run1 {
+  background-color: rgb(178, 206, 255);
+  display: block;
+}
+span.run2 {
+  background-color: rgb(178, 209, 255);
+  display: block;
+}
+span.run3 {
+  background-color: rgb(178, 211, 255);
+  display: block;
+}
+span.run4 {
+  background-color: rgb(178, 214, 255);
+  display: block;
+}
+span.run5 {
+  background-color: rgb(178, 218, 255);
+  display: block;
+}
+span.run6 {
+  background-color: rgb(178, 220, 255);
+  display: block;
+}
+span.run7 {
+  background-color: rgb(178, 223, 255);
+  display: block;
+}
+span.run8 {
+  background-color: rgb(178, 225, 255);
+  display: block;
+}
+span.run9 {
+  background-color: rgb(178, 228, 255);
+  display: block;
+}
+span.run10 {
+  background-color: rgb(178, 232, 255);
+  display: block;
+}
+span.run11 {
+  background-color: rgb(178, 234, 255);
+  display: block;
+}
+span.run12 {
+  background-color: rgb(178, 237, 255);
+  display: block;
+}
+span.run13 {
+  background-color: rgb(178, 239, 255);
+  display: block;
+}
+span.run14 {
+  background-color: rgb(178, 242, 255);
+  display: block;
+}
+span.run15 {
+  background-color: rgb(178, 246, 255);
+  display: block;
+}
+span.run16 {
+  background-color: rgb(178, 248, 255);
+  display: block;
+}
+span.run17 {
+  background-color: rgb(178, 251, 255);
+  display: block;
+}
+span.run18 {
+  background-color: rgb(178, 253, 255);
+  display: block;
+}
+span.run19 {
+  background-color: rgb(178, 255, 253);
+  display: block;
+}
+span.run20 {
+  background-color: rgb(178, 255, 249);
+  display: block;
+}
+span.run21 {
+  background-color: rgb(178, 255, 247);
+  display: block;
+}
+span.run22 {
+  background-color: rgb(178, 255, 244);
+  display: block;
+}
+span.run23 {
+  background-color: rgb(178, 255, 242);
+  display: block;
+}
+span.run24 {
+  background-color: rgb(178, 255, 239);
+  display: block;
+}
+span.run25 {
+  background-color: rgb(178, 255, 235);
+  display: block;
+}
+span.run26 {
+  background-color: rgb(178, 255, 233);
+  display: block;
+}
+span.run27 {
+  background-color: rgb(178, 255, 230);
+  display: block;
+}
+span.run28 {
+  background-color: rgb(178, 255, 228);
+  display: block;
+}
+span.run29 {
+  background-color: rgb(178, 255, 225);
+  display: block;
+}
+span.run30 {
+  background-color: rgb(178, 255, 221);
+  display: block;
+}
+span.run31 {
+  background-color: rgb(178, 255, 219);
+  display: block;
+}
+span.run32 {
+  background-color: rgb(178, 255, 216);
+  display: block;
+}
+span.run33 {
+  background-color: rgb(178, 255, 214);
+  display: block;
+}
+span.run34 {
+  background-color: rgb(178, 255, 211);
+  display: block;
+}
+span.run35 {
+  background-color: rgb(178, 255, 207);
+  display: block;
+}
+span.run36 {
+  background-color: rgb(178, 255, 205);
+  display: block;
+}
+span.run37 {
+  background-color: rgb(178, 255, 202);
+  display: block;
+}
+span.run38 {
+  background-color: rgb(178, 255, 200);
+  display: block;
+}
+span.run39 {
+  background-color: rgb(178, 255, 197);
+  display: block;
+}
+span.run40 {
+  background-color: rgb(178, 255, 193);
+  display: block;
+}
+span.run41 {
+  background-color: rgb(178, 255, 191);
+  display: block;
+}
+span.run42 {
+  background-color: rgb(178, 255, 188);
+  display: block;
+}
+span.run43 {
+  background-color: rgb(178, 255, 186);
+  display: block;
+}
+span.run44 {
+  background-color: rgb(178, 255, 183);
+  display: block;
+}
+span.run45 {
+  background-color: rgb(178, 255, 179);
+  display: block;
+}
+span.run46 {
+  background-color: rgb(179, 255, 178);
+  display: block;
+}
+span.run47 {
+  background-color: rgb(182, 255, 178);
+  display: block;
+}
+span.run48 {
+  background-color: rgb(184, 255, 178);
+  display: block;
+}
+span.run49 {
+  background-color: rgb(187, 255, 178);
+  display: block;
+}
+span.run50 {
+  background-color: rgb(191, 255, 178);
+  display: block;
+}
+span.run51 {
+  background-color: rgb(193, 255, 178);
+  display: block;
+}
+span.run52 {
+  background-color: rgb(196, 255, 178);
+  display: block;
+}
+span.run53 {
+  background-color: rgb(198, 255, 178);
+  display: block;
+}
+span.run54 {
+  background-color: rgb(201, 255, 178);
+  display: block;
+}
+span.run55 {
+  background-color: rgb(205, 255, 178);
+  display: block;
+}
+span.run56 {
+  background-color: rgb(207, 255, 178);
+  display: block;
+}
+span.run57 {
+  background-color: rgb(210, 255, 178);
+  display: block;
+}
+span.run58 {
+  background-color: rgb(212, 255, 178);
+  display: block;
+}
+span.run59 {
+  background-color: rgb(215, 255, 178);
+  display: block;
+}
+span.run60 {
+  background-color: rgb(219, 255, 178);
+  display: block;
+}
+span.run61 {
+  background-color: rgb(221, 255, 178);
+  display: block;
+}
+span.run62 {
+  background-color: rgb(224, 255, 178);
+  display: block;
+}
+span.run63 {
+  background-color: rgb(226, 255, 178);
+  display: block;
+}
+span.run64 {
+  background-color: rgb(229, 255, 178);
+  display: block;
+}
+span.run65 {
+  background-color: rgb(233, 255, 178);
+  display: block;
+}
+span.run66 {
+  background-color: rgb(235, 255, 178);
+  display: block;
+}
+span.run67 {
+  background-color: rgb(238, 255, 178);
+  display: block;
+}
+span.run68 {
+  background-color: rgb(240, 255, 178);
+  display: block;
+}
+span.run69 {
+  background-color: rgb(243, 255, 178);
+  display: block;
+}
+span.run70 {
+  background-color: rgb(247, 255, 178);
+  display: block;
+}
+span.run71 {
+  background-color: rgb(249, 255, 178);
+  display: block;
+}
+span.run72 {
+  background-color: rgb(252, 255, 178);
+  display: block;
+}
+span.run73 {
+  background-color: rgb(255, 255, 178);
+  display: block;
+}
+span.run74 {
+  background-color: rgb(255, 252, 178);
+  display: block;
+}
+span.run75 {
+  background-color: rgb(255, 248, 178);
+  display: block;
+}
+span.run76 {
+  background-color: rgb(255, 246, 178);
+  display: block;
+}
+span.run77 {
+  background-color: rgb(255, 243, 178);
+  display: block;
+}
+span.run78 {
+  background-color: rgb(255, 240, 178);
+  display: block;
+}
+span.run79 {
+  background-color: rgb(255, 238, 178);
+  display: block;
+}
+span.run80 {
+  background-color: rgb(255, 234, 178);
+  display: block;
+}
+span.run81 {
+  background-color: rgb(255, 232, 178);
+  display: block;
+}
+span.run82 {
+  background-color: rgb(255, 229, 178);
+  display: block;
+}
+span.run83 {
+  background-color: rgb(255, 226, 178);
+  display: block;
+}
+span.run84 {
+  background-color: rgb(255, 224, 178);
+  display: block;
+}
+span.run85 {
+  background-color: rgb(255, 220, 178);
+  display: block;
+}
+span.run86 {
+  background-color: rgb(255, 218, 178);
+  display: block;
+}
+span.run87 {
+  background-color: rgb(255, 215, 178);
+  display: block;
+}
+span.run88 {
+  background-color: rgb(255, 212, 178);
+  display: block;
+}
+span.run89 {
+  background-color: rgb(255, 210, 178);
+  display: block;
+}
+span.run90 {
+  background-color: rgb(255, 206, 178);
+  display: block;
+}
+span.run91 {
+  background-color: rgb(255, 204, 178);
+  display: block;
+}
+span.run92 {
+  background-color: rgb(255, 201, 178);
+  display: block;
+}
+span.run93 {
+  background-color: rgb(255, 198, 178);
+  display: block;
+}
+span.run94 {
+  background-color: rgb(255, 196, 178);
+  display: block;
+}
+span.run95 {
+  background-color: rgb(255, 192, 178);
+  display: block;
+}
+span.run96 {
+  background-color: rgb(255, 189, 178);
+  display: block;
+}
+span.run97 {
+  background-color: rgb(255, 187, 178);
+  display: block;
+}
+span.run98 {
+  background-color: rgb(255, 184, 178);
+  display: block;
+}
+span.run99 {
+  background-color: rgb(255, 182, 178);
+  display: block;
+}
+span.run100 {
+  background-color: rgb(255, 178, 178);
+  display: block;
+}
+</style>
+    </head>
+  <body><h3>C0 code coverage information</h3>
+    <p>Generated on Thu Sep 24 15:05:42 +1000 2009 with <a href='http://eigenclass.org/hiki/rcov'>rcov 0.8.1.2</a>
+      </p>
+    <hr/>
+    <pre><span class='marked0'>Code reported as executed by Ruby looks like this...
+</span><span class='marked1'>and this: this line is also marked as covered.
+</span><span class='inferred0'>Lines considered as run by rcov, but not reported by Ruby, look like this,
+</span><span class='inferred1'>and this: these lines were inferred by rcov (using simple heuristics).
+</span><span class='uncovered0'>Finally, here&apos;s a line marked as not executed.
+</span></pre>                       
+<table class='report'><thead><tr><td class='heading'>Name</td>
+      <td class='heading'>Total lines</td>
+      <td class='heading'>Lines of code</td>
+      <td class='heading'>Total coverage</td>
+      <td class='heading'>Code coverage</td>
+      </tr>
+    </thead>
+  <tbody><tr class='light'><td><a href='-Library-Ruby-Gems-1_8-gems-rails-2_3_2-lib-rails-gem_dependency_rb.html'>/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/gem_dependency.rb</a>
+        </td>
+      <td class='lines_total'><tt>282</tt>
+        </td>
+      <td class='lines_code'><tt>218</tt>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_total'>46.5%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='46'/>
+                  <td class='uncovered' width='54'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      <td><table cellspacing='0' cellpadding='0' align='right'><tr><td><tt class='coverage_code'>43.6%</tt>
+              &nbsp;</td>
+            <td><table cellspacing='0' class='percent_graph' cellpadding='0' width='100'><tr><td class='covered' width='44'/>
+                  <td class='uncovered' width='56'/>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<pre><span class="marked1"><a name="line1"></a>  1 require 'rails/vendor_gem_source_index'
+</span><span class="inferred0"><a name="line2"></a>  2 
+</span><span class="marked1"><a name="line3"></a>  3 module Gem
+</span><span class="marked0"><a name="line4"></a>  4   def self.source_index=(index)
+</span><span class="marked1"><a name="line5"></a>  5     @@source_index = index
+</span><span class="marked0"><a name="line6"></a>  6   end
+</span><span class="inferred1"><a name="line7"></a>  7 end
+</span><span class="inferred0"><a name="line8"></a>  8 
+</span><span class="marked1"><a name="line9"></a>  9 module Rails
+</span><span class="marked0"><a name="line10"></a> 10   class GemDependency &lt; Gem::Dependency
+</span><span class="marked1"><a name="line11"></a> 11     attr_accessor :lib, :source, :dep
+</span><span class="inferred0"><a name="line12"></a> 12 
+</span><span class="marked1"><a name="line13"></a> 13     def self.unpacked_path
+</span><span class="marked0"><a name="line14"></a> 14       @unpacked_path ||= File.join(RAILS_ROOT, 'vendor', 'gems')
+</span><span class="marked1"><a name="line15"></a> 15     end
+</span><span class="inferred0"><a name="line16"></a> 16 
+</span><span class="marked1"><a name="line17"></a> 17     @@framework_gems = {}
+</span><span class="inferred0"><a name="line18"></a> 18 
+</span><span class="marked1"><a name="line19"></a> 19     def self.add_frozen_gem_path
+</span><span class="uncovered0"><a name="line20"></a> 20       @@paths_loaded ||= begin
+</span><span class="marked1"><a name="line21"></a> 21         source_index = Rails::VendorGemSourceIndex.new(Gem.source_index)
+</span><span class="marked0"><a name="line22"></a> 22         Gem.clear_paths
+</span><span class="marked1"><a name="line23"></a> 23         Gem.source_index = source_index
+</span><span class="inferred0"><a name="line24"></a> 24         # loaded before us - we can't change them, so mark them
+</span><span class="marked1"><a name="line25"></a> 25         Gem.loaded_specs.each do |name, spec|
+</span><span class="marked0"><a name="line26"></a> 26           @@framework_gems[name] = spec
+</span><span class="inferred1"><a name="line27"></a> 27         end
+</span><span class="marked0"><a name="line28"></a> 28         true
+</span><span class="marked1"><a name="line29"></a> 29       end
+</span><span class="marked0"><a name="line30"></a> 30     end
+</span><span class="inferred1"><a name="line31"></a> 31 
+</span><span class="marked0"><a name="line32"></a> 32     def initialize(name, options = {})
+</span><span class="marked1"><a name="line33"></a> 33       require 'rubygems' unless Object.const_defined?(:Gem)
+</span><span class="inferred0"><a name="line34"></a> 34 
+</span><span class="marked1"><a name="line35"></a> 35       if options[:requirement]
+</span><span class="uncovered0"><a name="line36"></a> 36         req = options[:requirement]
+</span><span class="marked1"><a name="line37"></a> 37       elsif options[:version]
+</span><span class="uncovered0"><a name="line38"></a> 38         req = Gem::Requirement.create(options[:version])
+</span><span class="inferred1"><a name="line39"></a> 39       else
+</span><span class="marked0"><a name="line40"></a> 40         req = Gem::Requirement.default
+</span><span class="inferred1"><a name="line41"></a> 41       end
+</span><span class="inferred0"><a name="line42"></a> 42 
+</span><span class="marked1"><a name="line43"></a> 43       @lib      = options[:lib]
+</span><span class="marked0"><a name="line44"></a> 44       @source   = options[:source]
+</span><span class="marked1"><a name="line45"></a> 45       @loaded   = @frozen = @load_paths_added = false
+</span><span class="inferred0"><a name="line46"></a> 46 
+</span><span class="marked1"><a name="line47"></a> 47       super(name, req)
+</span><span class="inferred0"><a name="line48"></a> 48     end
+</span><span class="inferred1"><a name="line49"></a> 49 
+</span><span class="marked0"><a name="line50"></a> 50     def add_load_paths
+</span><span class="marked1"><a name="line51"></a> 51       self.class.add_frozen_gem_path
+</span><span class="marked0"><a name="line52"></a> 52       return if @loaded || @load_paths_added
+</span><span class="marked1"><a name="line53"></a> 53       if framework_gem?
+</span><span class="uncovered0"><a name="line54"></a> 54         @load_paths_added = @loaded = @frozen = true
+</span><span class="uncovered1"><a name="line55"></a> 55         return
+</span><span class="uncovered0"><a name="line56"></a> 56       end
+</span><span class="marked1"><a name="line57"></a> 57       gem self
+</span><span class="marked0"><a name="line58"></a> 58       @spec = Gem.loaded_specs[name]
+</span><span class="marked1"><a name="line59"></a> 59       @frozen = @spec.loaded_from.include?(self.class.unpacked_path) if @spec
+</span><span class="marked0"><a name="line60"></a> 60       @load_paths_added = true
+</span><span class="inferred1"><a name="line61"></a> 61     rescue Gem::LoadError
+</span><span class="marked0"><a name="line62"></a> 62     end
+</span><span class="inferred1"><a name="line63"></a> 63 
+</span><span class="marked0"><a name="line64"></a> 64     def dependencies
+</span><span class="uncovered1"><a name="line65"></a> 65       return [] if framework_gem?
+</span><span class="uncovered0"><a name="line66"></a> 66       return [] unless installed?
+</span><span class="uncovered1"><a name="line67"></a> 67       specification.dependencies.reject do |dependency|
+</span><span class="uncovered0"><a name="line68"></a> 68         dependency.type == :development
+</span><span class="uncovered1"><a name="line69"></a> 69       end.map do |dependency|
+</span><span class="uncovered0"><a name="line70"></a> 70         GemDependency.new(dependency.name, :requirement =&gt; dependency.version_requirements)
+</span><span class="uncovered1"><a name="line71"></a> 71       end
+</span><span class="uncovered0"><a name="line72"></a> 72     end
+</span><span class="inferred1"><a name="line73"></a> 73 
+</span><span class="marked0"><a name="line74"></a> 74     def specification
+</span><span class="uncovered1"><a name="line75"></a> 75       # code repeated from Gem.activate. Find a matching spec, or the currently loaded version.
+</span><span class="uncovered0"><a name="line76"></a> 76       # error out if loaded version and requested version are incompatible.
+</span><span class="uncovered1"><a name="line77"></a> 77       @spec ||= begin
+</span><span class="uncovered0"><a name="line78"></a> 78         matches = Gem.source_index.search(self)
+</span><span class="uncovered1"><a name="line79"></a> 79         matches &lt;&lt; @@framework_gems[name] if framework_gem?
+</span><span class="uncovered0"><a name="line80"></a> 80         if Gem.loaded_specs[name] then
+</span><span class="uncovered1"><a name="line81"></a> 81           # This gem is already loaded.  If the currently loaded gem is not in the
+</span><span class="uncovered0"><a name="line82"></a> 82           # list of candidate gems, then we have a version conflict.
+</span><span class="uncovered1"><a name="line83"></a> 83           existing_spec = Gem.loaded_specs[name]
+</span><span class="uncovered0"><a name="line84"></a> 84           unless matches.any? { |spec| spec.version == existing_spec.version } then
+</span><span class="uncovered1"><a name="line85"></a> 85             raise Gem::Exception,
+</span><span class="uncovered0"><a name="line86"></a> 86                   &quot;can't activate #{@dep}, already activated #{existing_spec.full_name}&quot;
+</span><span class="uncovered1"><a name="line87"></a> 87           end
+</span><span class="uncovered0"><a name="line88"></a> 88           # we're stuck with it, so change to match
+</span><span class="uncovered1"><a name="line89"></a> 89           version_requirements = Gem::Requirement.create(&quot;=#{existing_spec.version}&quot;)
+</span><span class="uncovered0"><a name="line90"></a> 90           existing_spec
+</span><span class="uncovered1"><a name="line91"></a> 91         else
+</span><span class="uncovered0"><a name="line92"></a> 92           # new load
+</span><span class="uncovered1"><a name="line93"></a> 93           matches.last
+</span><span class="uncovered0"><a name="line94"></a> 94         end
+</span><span class="marked1"><a name="line95"></a> 95       end
+</span><span class="marked0"><a name="line96"></a> 96     end
+</span><span class="inferred1"><a name="line97"></a> 97 
+</span><span class="marked0"><a name="line98"></a> 98     def requirement
+</span><span class="uncovered1"><a name="line99"></a> 99       r = version_requirements
+</span><span class="uncovered0"><a name="line100"></a>100       (r == Gem::Requirement.default) ? nil : r
+</span><span class="uncovered1"><a name="line101"></a>101     end
+</span><span class="inferred0"><a name="line102"></a>102 
+</span><span class="marked1"><a name="line103"></a>103     def built?
+</span><span class="uncovered0"><a name="line104"></a>104       # TODO: If Rubygems ever gives us a way to detect this, we should use it
+</span><span class="uncovered1"><a name="line105"></a>105       false
+</span><span class="uncovered0"><a name="line106"></a>106     end
+</span><span class="inferred1"><a name="line107"></a>107 
+</span><span class="marked0"><a name="line108"></a>108     def framework_gem?
+</span><span class="marked1"><a name="line109"></a>109       @@framework_gems.has_key?(name)
+</span><span class="marked0"><a name="line110"></a>110     end
+</span><span class="inferred1"><a name="line111"></a>111 
+</span><span class="marked0"><a name="line112"></a>112     def frozen?
+</span><span class="uncovered1"><a name="line113"></a>113       @frozen ||= vendor_rails? || vendor_gem?
+</span><span class="uncovered0"><a name="line114"></a>114     end
+</span><span class="inferred1"><a name="line115"></a>115 
+</span><span class="marked0"><a name="line116"></a>116     def installed?
+</span><span class="uncovered1"><a name="line117"></a>117       Gem.loaded_specs.keys.include?(name)
+</span><span class="uncovered0"><a name="line118"></a>118     end
+</span><span class="inferred1"><a name="line119"></a>119 
+</span><span class="marked0"><a name="line120"></a>120     def load_paths_added?
+</span><span class="uncovered1"><a name="line121"></a>121       # always try to add load paths - even if a gem is loaded, it may not
+</span><span class="uncovered0"><a name="line122"></a>122       # be a compatible version (ie random_gem 0.4 is loaded and a later spec
+</span><span class="uncovered1"><a name="line123"></a>123       # needs &gt;= 0.5 - gem 'random_gem' will catch this and error out)
+</span><span class="uncovered0"><a name="line124"></a>124       @load_paths_added
+</span><span class="uncovered1"><a name="line125"></a>125     end
+</span><span class="inferred0"><a name="line126"></a>126 
+</span><span class="marked1"><a name="line127"></a>127     def loaded?
+</span><span class="uncovered0"><a name="line128"></a>128       @loaded ||= begin
+</span><span class="uncovered1"><a name="line129"></a>129         if vendor_rails?
+</span><span class="uncovered0"><a name="line130"></a>130           true
+</span><span class="uncovered1"><a name="line131"></a>131         elsif specification.nil?
+</span><span class="uncovered0"><a name="line132"></a>132           false
+</span><span class="uncovered1"><a name="line133"></a>133         else
+</span><span class="uncovered0"><a name="line134"></a>134           # check if the gem is loaded by inspecting $&quot;
+</span><span class="uncovered1"><a name="line135"></a>135           # specification.files lists all the files contained in the gem
+</span><span class="uncovered0"><a name="line136"></a>136           gem_files = specification.files
+</span><span class="uncovered1"><a name="line137"></a>137           # select only the files contained in require_paths - typically in bin and lib
+</span><span class="uncovered0"><a name="line138"></a>138           require_paths_regexp = Regexp.new(&quot;^(#{specification.require_paths*'|'})/&quot;)
+</span><span class="uncovered1"><a name="line139"></a>139           gem_lib_files = gem_files.select { |f| require_paths_regexp.match(f) }
+</span><span class="uncovered0"><a name="line140"></a>140           # chop the leading directory off - a typical file might be in
+</span><span class="uncovered1"><a name="line141"></a>141           # lib/gem_name/file_name.rb, but it will be 'require'd as gem_name/file_name.rb
+</span><span class="uncovered0"><a name="line142"></a>142           gem_lib_files.map! { |f| f.split('/', 2)[1] }
+</span><span class="uncovered1"><a name="line143"></a>143           # if any of the files from the above list appear in $&quot;, the gem is assumed to
+</span><span class="uncovered0"><a name="line144"></a>144           # have been loaded
+</span><span class="uncovered1"><a name="line145"></a>145           !(gem_lib_files &amp; $&quot;).empty?
+</span><span class="uncovered0"><a name="line146"></a>146         end
+</span><span class="marked1"><a name="line147"></a>147       end
+</span><span class="marked0"><a name="line148"></a>148     end
+</span><span class="inferred1"><a name="line149"></a>149 
+</span><span class="marked0"><a name="line150"></a>150     def vendor_rails?
+</span><span class="uncovered1"><a name="line151"></a>151       Gem.loaded_specs.has_key?(name) &amp;&amp; Gem.loaded_specs[name].loaded_from.empty?
+</span><span class="uncovered0"><a name="line152"></a>152     end
+</span><span class="inferred1"><a name="line153"></a>153 
+</span><span class="marked0"><a name="line154"></a>154     def vendor_gem?
+</span><span class="uncovered1"><a name="line155"></a>155       specification &amp;&amp; File.exists?(unpacked_gem_directory)
+</span><span class="uncovered0"><a name="line156"></a>156     end
+</span><span class="inferred1"><a name="line157"></a>157 
+</span><span class="marked0"><a name="line158"></a>158     def build
+</span><span class="uncovered1"><a name="line159"></a>159       require 'rails/gem_builder'
+</span><span class="uncovered0"><a name="line160"></a>160       unless built?
+</span><span class="uncovered1"><a name="line161"></a>161         return unless File.exists?(unpacked_specification_filename)
+</span><span class="uncovered0"><a name="line162"></a>162         spec = YAML::load_file(unpacked_specification_filename)
+</span><span class="uncovered1"><a name="line163"></a>163         Rails::GemBuilder.new(spec, unpacked_gem_directory).build_extensions
+</span><span class="uncovered0"><a name="line164"></a>164         puts &quot;Built gem: '#{unpacked_gem_directory}'&quot;
+</span><span class="uncovered1"><a name="line165"></a>165       end
+</span><span class="uncovered0"><a name="line166"></a>166       dependencies.each { |dep| dep.build }
+</span><span class="uncovered1"><a name="line167"></a>167     end
+</span><span class="inferred0"><a name="line168"></a>168 
+</span><span class="marked1"><a name="line169"></a>169     def install
+</span><span class="uncovered0"><a name="line170"></a>170       unless installed?
+</span><span class="uncovered1"><a name="line171"></a>171         cmd = &quot;#{gem_command} #{install_command.join(' ')}&quot;
+</span><span class="uncovered0"><a name="line172"></a>172         puts cmd
+</span><span class="inferred1"><a name="line173"></a>173         puts %x(#{cmd})
+</span><span class="inferred0"><a name="line174"></a>174       end
+</span><span class="inferred1"><a name="line175"></a>175     end
+</span><span class="inferred0"><a name="line176"></a>176 
+</span><span class="marked1"><a name="line177"></a>177     def load
+</span><span class="marked0"><a name="line178"></a>178       return if @loaded || @load_paths_added == false
+</span><span class="marked1"><a name="line179"></a>179       require(@lib || name) unless @lib == false
+</span><span class="marked0"><a name="line180"></a>180       @loaded = true
+</span><span class="inferred1"><a name="line181"></a>181     rescue LoadError
+</span><span class="inferred0"><a name="line182"></a>182       puts $!.to_s
+</span><span class="inferred1"><a name="line183"></a>183       $!.backtrace.each { |b| puts b }
+</span><span class="marked0"><a name="line184"></a>184     end
+</span><span class="inferred1"><a name="line185"></a>185 
+</span><span class="marked0"><a name="line186"></a>186     def refresh
+</span><span class="inferred1"><a name="line187"></a>187       Rails::VendorGemSourceIndex.silence_spec_warnings = true
+</span><span class="uncovered0"><a name="line188"></a>188       real_gems = Gem.source_index.installed_source_index
+</span><span class="uncovered1"><a name="line189"></a>189       exact_dep = Gem::Dependency.new(name, &quot;= #{specification.version}&quot;)
+</span><span class="uncovered0"><a name="line190"></a>190       matches = real_gems.search(exact_dep)
+</span><span class="uncovered1"><a name="line191"></a>191       installed_spec = matches.first
+</span><span class="uncovered0"><a name="line192"></a>192       if frozen?
+</span><span class="uncovered1"><a name="line193"></a>193         if installed_spec
+</span><span class="uncovered0"><a name="line194"></a>194           # we have a real copy
+</span><span class="uncovered1"><a name="line195"></a>195           # get a fresh spec - matches should only have one element
+</span><span class="uncovered0"><a name="line196"></a>196           # note that there is no reliable method to check that the loaded
+</span><span class="uncovered1"><a name="line197"></a>197           # spec is the same as the copy from real_gems - Gem.activate changes
+</span><span class="uncovered0"><a name="line198"></a>198           # some of the fields
+</span><span class="uncovered1"><a name="line199"></a>199           real_spec = Gem::Specification.load(matches.first.loaded_from)
+</span><span class="uncovered0"><a name="line200"></a>200           write_specification(real_spec)
+</span><span class="uncovered1"><a name="line201"></a>201           puts &quot;Reloaded specification for #{name} from installed gems.&quot;
+</span><span class="uncovered0"><a name="line202"></a>202         else
+</span><span class="uncovered1"><a name="line203"></a>203           # the gem isn't installed locally - write out our current specs
+</span><span class="uncovered0"><a name="line204"></a>204           write_specification(specification)
+</span><span class="uncovered1"><a name="line205"></a>205           puts &quot;Gem #{name} not loaded locally - writing out current spec.&quot;
+</span><span class="uncovered0"><a name="line206"></a>206         end
+</span><span class="uncovered1"><a name="line207"></a>207       else
+</span><span class="uncovered0"><a name="line208"></a>208         if framework_gem?
+</span><span class="uncovered1"><a name="line209"></a>209           puts &quot;Gem directory for #{name} not found - check if it's loading before rails.&quot;
+</span><span class="uncovered0"><a name="line210"></a>210         else
+</span><span class="uncovered1"><a name="line211"></a>211           puts &quot;Something bad is going on - gem directory not found for #{name}.&quot;
+</span><span class="uncovered0"><a name="line212"></a>212         end
+</span><span class="uncovered1"><a name="line213"></a>213       end
+</span><span class="uncovered0"><a name="line214"></a>214     end
+</span><span class="inferred1"><a name="line215"></a>215 
+</span><span class="marked0"><a name="line216"></a>216     def unpack(options={})
+</span><span class="uncovered1"><a name="line217"></a>217       unless frozen? || framework_gem?
+</span><span class="uncovered0"><a name="line218"></a>218         FileUtils.mkdir_p unpack_base
+</span><span class="uncovered1"><a name="line219"></a>219         Dir.chdir unpack_base do
+</span><span class="uncovered0"><a name="line220"></a>220           Gem::GemRunner.new.run(unpack_command)
+</span><span class="uncovered1"><a name="line221"></a>221         end
+</span><span class="uncovered0"><a name="line222"></a>222         # Gem.activate changes the spec - get the original
+</span><span class="uncovered1"><a name="line223"></a>223         real_spec = Gem::Specification.load(specification.loaded_from)
+</span><span class="uncovered0"><a name="line224"></a>224         write_specification(real_spec)
+</span><span class="uncovered1"><a name="line225"></a>225       end
+</span><span class="uncovered0"><a name="line226"></a>226       dependencies.each { |dep| dep.unpack } if options[:recursive]
+</span><span class="uncovered1"><a name="line227"></a>227     end
+</span><span class="inferred0"><a name="line228"></a>228 
+</span><span class="marked1"><a name="line229"></a>229     def write_specification(spec)
+</span><span class="uncovered0"><a name="line230"></a>230       # copy the gem's specification into GEMDIR/.specification so that
+</span><span class="uncovered1"><a name="line231"></a>231       # we can access information about the gem on deployment systems
+</span><span class="uncovered0"><a name="line232"></a>232       # without having the gem installed
+</span><span class="uncovered1"><a name="line233"></a>233       File.open(unpacked_specification_filename, 'w') do |file|
+</span><span class="uncovered0"><a name="line234"></a>234         file.puts spec.to_yaml
+</span><span class="uncovered1"><a name="line235"></a>235       end
+</span><span class="uncovered0"><a name="line236"></a>236     end
+</span><span class="inferred1"><a name="line237"></a>237 
+</span><span class="marked0"><a name="line238"></a>238     def ==(other)
+</span><span class="uncovered1"><a name="line239"></a>239       self.name == other.name &amp;&amp; self.requirement == other.requirement
+</span><span class="uncovered0"><a name="line240"></a>240     end
+</span><span class="marked1"><a name="line241"></a>241     alias_method :&quot;eql?&quot;, :&quot;==&quot;
+</span><span class="inferred0"><a name="line242"></a>242 
+</span><span class="marked1"><a name="line243"></a>243     private
+</span><span class="inferred0"><a name="line244"></a>244 
+</span><span class="marked1"><a name="line245"></a>245       def gem_command
+</span><span class="inferred0"><a name="line246"></a>246         case RUBY_PLATFORM
+</span><span class="uncovered1"><a name="line247"></a>247           when /win32/
+</span><span class="uncovered0"><a name="line248"></a>248             'gem.bat'
+</span><span class="uncovered1"><a name="line249"></a>249           when /java/
+</span><span class="uncovered0"><a name="line250"></a>250             'jruby -S gem'
+</span><span class="uncovered1"><a name="line251"></a>251           else
+</span><span class="uncovered0"><a name="line252"></a>252             'gem'
+</span><span class="uncovered1"><a name="line253"></a>253         end
+</span><span class="uncovered0"><a name="line254"></a>254       end
+</span><span class="inferred1"><a name="line255"></a>255 
+</span><span class="marked0"><a name="line256"></a>256       def install_command
+</span><span class="inferred1"><a name="line257"></a>257         cmd = %w(install) &lt;&lt; name
+</span><span class="inferred0"><a name="line258"></a>258         cmd &lt;&lt; &quot;--version&quot; &lt;&lt; %(&quot;#{requirement.to_s}&quot;) if requirement
+</span><span class="inferred1"><a name="line259"></a>259         cmd &lt;&lt; &quot;--source&quot;  &lt;&lt; @source  if @source
+</span><span class="inferred0"><a name="line260"></a>260         cmd
+</span><span class="inferred1"><a name="line261"></a>261       end
+</span><span class="inferred0"><a name="line262"></a>262 
+</span><span class="marked1"><a name="line263"></a>263       def unpack_command
+</span><span class="inferred0"><a name="line264"></a>264         cmd = %w(unpack) &lt;&lt; name
+</span><span class="uncovered1"><a name="line265"></a>265         cmd &lt;&lt; &quot;--version&quot; &lt;&lt; &quot;= &quot;+specification.version.to_s if requirement
+</span><span class="uncovered0"><a name="line266"></a>266         cmd
+</span><span class="uncovered1"><a name="line267"></a>267       end
+</span><span class="inferred0"><a name="line268"></a>268 
+</span><span class="marked1"><a name="line269"></a>269       def unpack_base
+</span><span class="uncovered0"><a name="line270"></a>270         Rails::GemDependency.unpacked_path
+</span><span class="uncovered1"><a name="line271"></a>271       end
+</span><span class="inferred0"><a name="line272"></a>272 
+</span><span class="marked1"><a name="line273"></a>273       def unpacked_gem_directory
+</span><span class="uncovered0"><a name="line274"></a>274         File.join(unpack_base, specification.full_name)
+</span><span class="uncovered1"><a name="line275"></a>275       end
+</span><span class="inferred0"><a name="line276"></a>276 
+</span><span class="marked1"><a name="line277"></a>277       def unpacked_specification_filename
+</span><span class="uncovered0"><a name="line278"></a>278         File.join(unpacked_gem_directory, '.specification')
+</span><span class="uncovered1"><a name="line279"></a>279       end
+</span><span class="uncovered0"><a name="line280"></a>280 
+</span><span class="uncovered1"><a name="line281"></a>281   end
+</span><span class="uncovered0"><a name="line282"></a>282 end
+</span></pre><hr/>
+    <p>Generated using the <a href='http://eigenclass.org/hiki.rb?rcov'>rcov code coverage analysis tool for Ruby</a>
+   version 0.8.1.2.</p>
+<p><a href='http://validator.w3.org/check/referer'><img src='http://www.w3.org/Icons/valid-xhtml10' height='31' alt='Valid XHTML 1.0!' width='88'/>
+        </a>
+      <a href='http://jigsaw.w3.org/css-validator/check/referer'><img src='http://jigsaw.w3.org/css-validator/images/vcss' alt='Valid CSS!' style='border:0;width:88px;height:31px'/>
+        </a>
+      </p>
+    </body>
+  </html>

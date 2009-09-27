@@ -1,0 +1,9 @@
+- content_for :subtabs do
+  #subtabs
+    %ul.subtabs-menu
+      %li
+        = link_to('Profile', person_path(@person), :class => params[:involvement].nil? ? "subtabs-menu-active" : "subtabs-menu-inactive")
+      - if !@person.client.nil?
+        - @person.client.field_ministry_involvements.each do |involvement|
+          %li
+            = link_to(involvement.field_ministry.name, person_path(@person, :involvement => involvement.id), :class => params[:involvement].to_i == involvement.id ? "subtabs-menu-active" : "subtabs-menu-inactive")

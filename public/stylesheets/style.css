@@ -377,7 +377,10 @@ h1#title {
   clear: both;
   display: block;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-bottom: 10px; }
+  .clear .nomargin {
+    margin-bottom: 0; }
 
 .alt {
   display: none; }

@@ -1,0 +1,171 @@
+- content_for :subtabs do
+  #subtabs
+    %ul.subtabs-menu
+      %li
+        = link_to('Profile', person_path(@person), :class => params[:involvement].nil? ? "subtabs-menu-active" : "subtabs-menu-inactive")
+      - if !@person.client.nil?
+        - @person.client.field_ministry_involvements.each do |involvement|
+          %li
+            = link_to(involvement.field_ministry.name, person_path(@person, :involvement => involvement.id), :class => params[:involvement].to_i == involvement.id ? "subtabs-menu-active" : "subtabs-menu-inactive")
+.sectionHeader
+  %h2 
+    = "Details for #{@person.full_name_including_nickname}"
+.details
+  - if params[:involvement].nil?
+    -# first, main tab = person's details
+    %p
+      %label Gender:
+      %span= @person.gender ||= "Unknown"
+    %p
+      %label Address:
+      %span.floatLeft= @person.full_address "<br />"
+    .clear &nbsp;
+    %p
+      %label Mobile:
+      %span= @person.mobile ||= "&nbsp;"
+    %p
+      %label Phone:
+      %span= @person.phone ||= "&nbsp;"
+  
+    %p &nbsp;
+  
+    %p
+      %label Christian?
+      %span
+        %strong= yes_or_no @person.christian  
+    %p
+      %label Became Christian with CCCA?
+      %span Not implemented yet.
+    
+    %p
+      %label Date of Birth:
+      %span= @person.date_of_birth.to_s(:long)
+    %p
+      %label Age:
+      %span= @person.age
+  
+    %p &nbsp;
+    
+    %p
+      %label Current employment:
+      %span
+        - if @person.workplace.nil?
+          Unemployed
+        - else
+          = @person.workplace.name
+          -# TODO Make the workplace name link to details about it
+    
+    %p &nbsp;
+    
+    %p
+      %label Education History:
+      %span
+        - @person.students.each do |student|
+          = student.school.name
+          - if student.start_date?
+            = "(#{student.start_date.to_s :long}"
+            - if student.end_date?
+              =" - #{student.end_date.to_s :long})"
+            - else
+              to present)
+          %br
+    
+    %p &nbsp;
+    
+    %p
+      %label Marital status:
+      %span
+        - if @person.spouse.nil?
+          Unmarried
+        - else
+          Married to 
+          = link_to @person.spouse.full_name, person_path(@person.spouse)
+    %p
+      %label Children:
+      %span
+        - if @person.children.empty?
+          None
+        - else
+          - @person.children.each do |child|
+            = link_to child.name, person_path(child)
+            =", #{child.age}"
+            %br
+    %p
+      %label Age of oldest child:
+      %span
+        - if @person.children.empty?
+          N/A
+        - else
+          = @person.children.maximum(:age)
+          
+    %p &nbsp;
+
+    %p
+      %label Home church:
+      - if @person.church.nil?
+        None
+      - else
+        %span= @person.church.name
+    %p
+      %label Church address:
+      - if @person.church.nil?
+        N/A
+      - else
+        %span= @person.church.full_address ", "
+    %p
+      %label Pastor:
+      %span= @person.church_pastor ||= "N/A"
+      
+    %p &nbsp;
+    
+    %p.b Events of note:
+    - if @person.life_events.empty?
+      None
+    - else
+      - @person.life_events.each do |life_event|
+        %p
+          %label= life_event.description
+          %span= life_event.event_date.to_s :long
+      
+    -# TODO Rest of the person's details going here
+  - else
+    - field_ministry_involvement = @person.client.field_ministry_involvements.find(params[:involvement].to_i)
+    - field_ministry = field_ministry_involvement.field_ministry
+    %p
+      %label.strong Field Ministry Name
+      %span.strong= field_ministry.name
+    %p &nbsp;
+    %p
+      %strong Standard information kept on all field ministries:
+    %p
+      %label First involvement
+      %span= field_ministry_involvement.start_date.to_s :long
+    %p
+      %label Last involvement
+      - if field_ministry_involvement.end_date.nil?
+        %span Continuing
+      - else
+        %span= field_ministry_involvement.end_date.to_s :long
+    %p
+      %label Did they become a Christian in this ministry?
+      %span= yes_or_no(field_ministry_involvement.became_christian)
+
+    %p &nbsp;
+    
+    %p
+      %strong Unique data being kept by this ministry:
+    %p
+      Not implemented yet.
+
+    %p &nbsp;
+    
+    %p
+      %strong Conferences and special events attended:
+    %p
+      Not implemented yet.
+
+
+    
+    
+  
+

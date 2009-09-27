@@ -50,5 +50,5 @@
         %td=h result.person.email
         %td.alignright
           %span.butProfile
-            = link_to "Profile", "#"
+            = link_to "Profile", person_path(result.person)
             =# link_to "Profile" client_path(@result)

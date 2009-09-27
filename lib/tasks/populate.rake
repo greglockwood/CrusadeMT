@@ -43,6 +43,7 @@ namespace :db do
       high_school_workplace_ids = []
       family_life_ids = []
       children_to_assign_to_kids_ministries = []
+      married_person_ids = []
       
       
       # create the non-nested sample models to use, like universities and workplaces
@@ -118,8 +119,14 @@ namespace :db do
         person.christian = [true, false]
         person.church_id = church_ids # should randomly pick one
         person.church_pastor = [nil, Faker::Name.name, "Rev. #{Faker::Name.name}"] unless !person.church_id
-        person.date_of_birth = 70.years.ago.to_date..5.years.ago.to_date
+        person.date_of_birth = 85.years.ago.to_date..5.years.ago.to_date
         if (person.date_of_birth < 35.years.ago.to_date)
+          # give a third of adults a spouse as well
+          if [1,2,3].rand == 1 and !adult_ids.empty?
+            person.spouse_id = adult_ids - married_person_ids 
+            # keep track of who we set as married so we can set the reciprocal relationship later
+            married_person_ids.push person.id
+          end
           adult_ids.push person.id
         elsif (person.date_of_birth < 18.years.ago.to_date)
           young_adult_ids.push person.id
@@ -148,6 +155,13 @@ namespace :db do
         end
       end
       
+      # set the reciprocal marriage relationships
+      married_person_ids.each do |married_person_id|
+        spouse = Person.find(married_person_id).spouse
+        spouse.spouse_id = married_person_id
+        spouse.save
+      end
+      
       FieldMinistry.populate 6 do |field_ministry|
         field_ministry.name = ministries[current_ministry]
         field_ministry.xml_url = "http://www.#{ministries[current_ministry].downcase.delete " "}.org/"
@@ -156,16 +170,19 @@ namespace :db do
         when "Student Life"
           Client.populate 10 do |client|
             client.person_id = young_adult_ids
+            current_person = Person.find(client.person_id)
             FieldMinistryInvolvement.populate 1 do |involvement|
               involvement.field_ministry_id = field_ministry.id
               involvement.client_id = client.id
-              involvement.start_date = 20.years.ago.to_date..Date.today
+              involvement.start_date = (current_person.age - 18).years.ago.to_date..Date.today
               involvement.end_date = involvement.start_date + ([3, 4, 5, 6].rand * [182, 365].rand)
               involvement.became_christian = [true, false]
-            end
-            Student.populate 1 do |student|
-              student.person_id = client.person_id
-              student.school_id = university_ids
+              Student.populate 1 do |student|
+                student.person_id = client.person_id
+                student.school_id = university_ids
+                student.start_date = involvement.start_date..involvement.end_date
+                student.end_date = student.start_date..involvement.end_date
+              end
             end
             # TODO Should probably add degrees here as well
           end
@@ -240,9 +257,12 @@ namespace :db do
           # 8 high school students
           Client.populate 8 do |client|
             client.person_id = teenager_ids
+            current_person = Person.find(client.person_id)
             Student.populate 1 do |student|
               student.person_id = client.person_id
               student.school_id = high_school_ids # random high school
+              student.start_date = current_person.date_of_birth + (12..current_person.age).to_a.rand * 365
+              student.end_date = nil # all are currently at school
             end
             FieldMinistryInvolvement.populate 1 do |involvement|
               involvement.field_ministry_id = field_ministry.id

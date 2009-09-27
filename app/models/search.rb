@@ -1,12 +1,15 @@
 class Search < ActiveRecord::Base
   belongs_to :church
 
-  has_many :search_involvements, :through => :search_involvement
+  has_many :search_involvements
+  has_many :field_ministries, :through => :search_involvements
   
   validates_presence_of :name, :on => :create, :message => "can't be blank"
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
   
   attr_accessor :based_on
+  
+  
   
   def criteria
     attributes.reject { |key, value| key == 'created_at' || key == 'updated_at' || key == 'id' || key == 'name'}
@@ -60,7 +63,11 @@ class Search < ActiveRecord::Base
       conditions.push "church_id = ?"
       values.push church_id
     end
-    [conditions.join(" AND ")] + values
+    if !conditions.empty?
+      [conditions.join(" AND ")] + values
+    else
+      [] # return an empty array if no conditions at all, rather than a [""] array
+    end
   end
   
   def to_param

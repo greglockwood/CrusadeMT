@@ -25,13 +25,14 @@ class CreateSearches < ActiveRecord::Migration
                   :last_name => "",
                   :gender => "",
                   :suburb => "",
-                  :christian => false,
-                  :became_christian => false,
-                  :min_age => 0,
-                  :max_age => 150,
-                  :has_children => false,
+                  :christian => nil,
+                  :became_christian => nil,
+                  :min_age => nil,
+                  :max_age => nil,
+                  :has_children => nil,
                   :oldest_child_age => nil,
                   :church => nil
+                  
   end
 
   def self.down

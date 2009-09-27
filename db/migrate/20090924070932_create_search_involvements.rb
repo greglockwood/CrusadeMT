@@ -6,6 +6,9 @@ class CreateSearchInvolvements < ActiveRecord::Migration
 
       t.timestamps
     end
+    FieldMinistry.all.each do |ministry|
+      SearchInvolvement.create(:search_id => 1, :field_ministry_id => ministry.id)
+    end
   end
 
   def self.down

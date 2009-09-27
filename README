@@ -7,5 +7,12 @@ To get up and running, be sure to run the following rake tasks:
 2. rake db:populate:states
 
 My Todo Tasks:
-1. Refactor the primary, high school, uni thing using Single Table Inheritance.
+1. Refactor the primary, high school, uni thing using Single Table Inheritance. (Done)
    See this link for details: http://api.rubyonrails.org/classes/ActiveRecord/Base.html, Single Table Inheritance section
+2. Include an 'Any' option for field ministry involvements when searching, so that it picks up clients not involved in any ministry at the moment
+3. CSV Export of all data
+4. CSV Export of email addresses
+5. Link Profile link on results page to actual profile page
+6. Create profile page
+7. Many more tests
+8. Dynamic title and green header bar text 

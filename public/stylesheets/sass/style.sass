@@ -295,7 +295,10 @@ input:focus, textarea:focus
 
 
 select
-  width: 175px
+  width: 230px
+  padding: 2px
+  &.short
+    width: 175px
 
 
 li
@@ -485,6 +488,13 @@ form .label
   text-align: right
   margin-right: 8px
 
+.left_column
+  width: 450px
+  float: left
+  
+.right_column
+  width: 300px
+  float: left
 
 div.sectionHeader h2
   border-bottom: 1px solid #000
@@ -832,11 +842,12 @@ a
 
 
 label
-  width: 90px
+  width: 175px
   display: block
   float: left
   padding: 5px 8px 5px 0px
-
+  &.tiny
+    width: 20px
 
 .clearfix
   display: inline-block

@@ -3,3 +3,4 @@ tmp/**/*
 doc/api
 doc/app
 .rake_tasks~
+db/test.sqlite3

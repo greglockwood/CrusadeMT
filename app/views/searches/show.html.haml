@@ -1,5 +1,43 @@
-%h2 Search Results
+.sectionHeader
+  %h2 Search Results
+  
+%p
+  &nbsp;
+  
+.butDExcel{:style => "float:right;"}
+  = link_to "Export Emails", "#"
+  
+.butDExcel{:style => "float:right;"}
+  = link_to "Export as CSV", "#"
 
-%ul
-  - @results.each do |result|
-    %li= "#{result.person.first_name} #{result.person.last_name}, #{result.person.email}"
+.yoursearch
+  %p
+    = pluralize(@results.size, "results")
+    found.
+    %br
+
+      
+
+%table.directorytable{:cellspacing => 0, :cellpadding => 0}
+  %thead.center
+    %tr
+      %th First Name
+      %th Last Name
+      %th Mobile
+      %th Phone
+      %th Email
+      %th &nbsp;
+  %tbody
+    - @results.each_with_index do |result, i|
+      - row_class = (i.even? ? "highlight" : "nohighlight")
+      %tr{:class => row_class}
+        %td=h result.person.first_name
+        %td=h result.person.last_name
+        %td=h result.person.mobile
+        %td=h result.person.phone
+        %td=h result.person.email
+        %td.alignright
+          %span.butProfile
+            = link_to "Profile", "#"
+            =# link_to "Profile" client_path(@result)
+  -#%li= "#{result.person.first_name} #{result.person.last_name}, #{result.person.email}"

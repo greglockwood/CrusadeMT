@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     logger.debug "search_criteria is: #{search_criteria.to_yaml}"
     session[:search_criteria] = search_criteria
     logger.debug "set session to: #{session[:search_criteria].to_yaml}"    
-    redirect_to :action => :show
+    redirect_to "/searches/results"
     #respond_to do |format|
     #  if @search.name?
     #    if @search.save

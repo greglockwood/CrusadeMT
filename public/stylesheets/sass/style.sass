@@ -489,15 +489,8 @@ form .label
   float: left
   width: 100px
   text-align: right
-  margin-right: 8px
+  margin-right: 8px  
 
-.left_column
-  width: 450px
-  float: left
-  
-.right_column
-  width: 300px
-  float: left
 
 div.sectionHeader h2
   border-bottom: 1px solid #000
@@ -843,7 +836,6 @@ a
   float: left
   padding-left: 10px
 
-
 label
   width: 175px
   display: block
@@ -855,7 +847,22 @@ label
 .details
   label
     padding: 0
+    
+.left_column
+  width: 450px
+  float: left
+  label
+    width: 175px
+    &.tiny
+      width: 20px
 
+.right_column
+  width: 300px
+  float: left
+
+.single_column
+  label
+    width: 275px
 .clearfix
   display: inline-block
 

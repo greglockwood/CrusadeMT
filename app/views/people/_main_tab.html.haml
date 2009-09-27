@@ -1,27 +1,27 @@
 %p
   %label Gender:
-  %span= @person.gender ||= "Unknown"
+  %span= value_or_blank @person.gender, "Unknown"
 %p
   %label Address:
   %span.floatLeft= @person.full_address "<br />"
 .clear &nbsp;
 %p
   %label Mobile:
-  %span= @person.mobile ||= "N/A"
+  %span= value_or_blank @person.mobile
 %p
   %label Phone:
-  %span= @person.phone ||= "N/A"
+  %span= value_or_blank @person.phone
 
 = divider
 
 %p
   %label Christian?
   %span
-    %strong= yes_or_no @person.christian  
-%p
-  %label Became Christian with CCCA?
-  %span Not implemented yet.
-
+    %strong= yes_or_no @person.christian
+- unimplemented_section do  
+  %p
+    %label Became Christian with CCCA?
+    %span Not implemented yet.   
 %p
   %label Date of Birth:
   %span= @person.date_of_birth.to_s(:long)
@@ -33,20 +33,14 @@
 
 %p
   %label Current employment:
-  %span
-    - if @person.workplace.nil?
-      Unemployed
-    - else
-      = @person.workplace.name
-      -# TODO Make the workplace name link to details about it
-
+  %span= value_or_blank_object @person.workplace, :name, "Unemployed", :nil?
 = divider
 
 %p
   %label Education History:
-  %span
+  %span.floatLeft
     - if @person.students.empty?
-      N/A
+      = blank_text("N/A")
     - else
       - @person.students.each do |student|
         = student.school.name
@@ -57,22 +51,22 @@
           - else
             to present)
         %br
-
+.clear &nbsp;
 = divider
 
 %p
   %label Marital status:
   %span
-    - if @person.spouse.nil?
-      Unmarried
-    - else
+    - if !@person.spouse.nil?
       Married to 
       = link_to @person.spouse.full_name, person_path(@person.spouse)
+    - else
+      = blank_text("Unmarried")
 %p
   %label Children:
   %span.floatLeft
     - if @person.children.empty?
-      None
+      = blank_text ("None")
     - else
       - @person.children.each do |child|
         = link_to child.full_name, person_path(child)
@@ -83,7 +77,7 @@
   %label Age of oldest child:
   %span
     - if @person.children.empty?
-      N/A
+      = blank_text("N/A")
     - else
       = @person.children.sort_by(&:age).last.age
       
@@ -91,25 +85,23 @@
 
 %p
   %label Home church:
-  - if @person.church.nil?
-    None
-  - else
-    %span= @person.church.name
+  %span= value_or_blank_object @person.church, :name, "None", :nil?
 %p
   %label Church address:
+  %span
   - if @person.church.nil?
-    N/A
+    = blank_text("N/A")
   - else
     %span= @person.church.full_address ", "
 %p
   %label Pastor:
-  %span= @person.church_pastor ||= "N/A"
+  %span= value_or_blank @person.church_pastor, "N/A"
   
 = divider
 
 %p.b Events of note:
 - if @person.life_events.empty?
-  None
+  %p= blank_text("None")
 - else
   - @person.life_events.each do |life_event|
     %p

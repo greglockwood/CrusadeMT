@@ -396,14 +396,6 @@ form .label {
   text-align: right;
   margin-right: 8px; }
 
-.left_column {
-  width: 450px;
-  float: left; }
-
-.right_column {
-  width: 300px;
-  float: left; }
-
 div.sectionHeader h2 {
   border-bottom: 1px solid #000;
   padding: 5px  0 2px 0;
@@ -682,6 +674,21 @@ label {
 
 .details label {
   padding: 0; }
+
+.left_column {
+  width: 450px;
+  float: left; }
+  .left_column label {
+    width: 175px; }
+    .left_column label.tiny {
+      width: 20px; }
+
+.right_column {
+  width: 300px;
+  float: left; }
+
+.single_column label {
+  width: 275px; }
 
 .clearfix {
   display: inline-block; }

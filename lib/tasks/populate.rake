@@ -120,6 +120,7 @@ namespace :db do
         person.church_id = church_ids # should randomly pick one
         person.church_pastor = [nil, Faker::Name.name, "Rev. #{Faker::Name.name}"] unless !person.church_id
         person.date_of_birth = 85.years.ago.to_date..5.years.ago.to_date
+        person.workplace_id = workplace_ids # assume everyone has a job to start with - will nil out children's jobs
         if (person.date_of_birth < 35.years.ago.to_date)
           # give a third of adults a spouse as well
           if [1,2,3].rand == 1 and !adult_ids.empty?
@@ -133,9 +134,9 @@ namespace :db do
         elsif (person.date_of_birth < 12.years.ago.to_date)
           teenager_ids.push person.id
         else
+          person.workplace_id = nil
           child_ids.push person.id
         end
-        person.workplace_id = workplace_ids # we might get child labourers with this, but whatever
         person.nickname = [nil, Populator.words(1.2).titleize]
         person.email = [nil, Faker::Internet.email("#{person.first_name} #{person.last_name}"), Faker::Internet.free_email("#{person.first_name} #{person.last_name}")]
         person.phone = [nil, Faker::PhoneNumber.phone_number]

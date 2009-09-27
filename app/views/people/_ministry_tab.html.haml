@@ -3,7 +3,7 @@
 %p
   %label.strong Field Ministry Name
   %span.strong= field_ministry.name
-%p &nbsp;
+= divider
 %p
   %strong Standard information kept on all field ministries:
 %p
@@ -19,16 +19,17 @@
   %label Did they become a Christian in this ministry?
   %span= yes_or_no(field_ministry_involvement.became_christian)
 
-%p &nbsp;
+= divider
 
-%p
-  %strong Unique data being kept by this ministry:
-%p
-  Not implemented yet.
+- unimplemented_section do
+  %p
+    %strong Unique data being kept by this ministry:
+  %p
+    Not implemented yet.
+  = divider
 
-%p &nbsp;
-
-%p
-  %strong Conferences and special events attended:
-%p
-  Not implemented yet.
+- unimplemented_section do
+  %p
+    %strong Conferences and special events attended:
+  %p
+    Not implemented yet.

@@ -2,7 +2,7 @@
 .sectionHeader
   %h2 
     = "Details for #{@person.full_name_including_nickname}"
-.details
+.details.single_column
   - if params[:involvement].nil?
     -# first, main tab = person's details
     = render :partial => 'main_tab'

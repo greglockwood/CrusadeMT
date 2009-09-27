@@ -2,12 +2,11 @@
   = f.error_messages
   %p
     = f.label :name
-    %br
     = f.text_field :name
   %p
-    %abbr{:title => "eXtensible Markup Language"} XML
-    %abbr{:title => "Universal Resource Locator"} URL:
-    %br
+    %label
+      %abbr{:title => "eXtensible Markup Language"} XML
+      %abbr{:title => "Universal Resource Locator"} URL:
     = f.text_field :xml_url
   %p
     = f.submit "Submit"

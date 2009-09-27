@@ -1,0 +1,5 @@
+%h2 Search Results
+
+%ul
+  - @results.each do |result|
+    %li= "#{result.person.first_name} #{result.person.last_name}, #{result.person.email}"

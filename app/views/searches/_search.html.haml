@@ -1,0 +1,44 @@
+- content_tag_for :div, search do
+  %ul
+    %li
+      %strong Name:
+      =h search.name
+    %li
+      %strong First name:
+      =h search.first_name
+    %li
+      %strong Nickname:
+      =h search.nickname
+    %li
+      %strong Last name:
+      =h search.last_name
+    %li
+      %strong Gender:
+      =h search.gender
+    %li
+      %strong Suburb:
+      =h search.suburb
+    %li
+      %strong Christian:
+      =h search.christian
+    %li
+      %strong Became christian:
+      =h search.became_christian
+    %li
+      %strong Min age:
+      =h search.min_age
+    %li
+      %strong Max age:
+      =h search.max_age
+    %li
+      %strong Has children:
+      =h search.has_children
+    %li
+      %strong Oldest child age:
+      =h search.oldest_child_age
+    %li
+      %strong Church:
+      =h search.church
+    = link_to 'Show', search
+    = link_to 'Edit', edit_search_path(search)
+    = link_to 'Destroy', search, :confirm => 'Are you sure?', :method => :delete

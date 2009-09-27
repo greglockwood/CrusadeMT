@@ -1,0 +1,57 @@
+- form_for(search) do |f|
+  = f.error_messages
+  %p
+    Based on existing search:
+    %br
+    = f.select :based_on, Search.all.collect { |s| [s.name, s.id] }
+    = observe_field "search_based_on", :url => new_search_path, :with => 'based_on'
+  %p
+    = f.label :first_name
+    %br
+    = f.text_field :first_name
+  %p
+    = f.label :nickname
+    %br
+    = f.text_field :nickname
+  %p
+    = f.label :last_name
+    %br
+    = f.text_field :last_name
+  %p
+    = f.label :gender
+    %br
+    = f.text_field :gender
+  %p
+    = f.label :suburb
+    %br
+    = f.text_field :suburb
+  %p
+    = f.label :christian
+    %br
+    = f.check_box :christian
+  %p
+    = f.label :became_christian
+    %br
+    = f.check_box :became_christian
+  %p
+    = f.label :min_age
+    %br
+    = f.text_field :min_age
+  %p
+    = f.label :max_age
+    %br
+    = f.text_field :max_age
+  %p
+    = f.label :has_children
+    %br
+    = f.check_box :has_children
+  %p
+    = f.label :oldest_child_age
+    %br
+    = f.text_field :oldest_child_age
+  %p
+    = f.label :church
+    %br
+    = f.select :church_id, Church.all(:order => "state_id ASC, suburb ASC").collect { |c| ["#{c.name} (#{c.suburb}, #{c.state.abbreviation})", c.id]}, :include_blank => "(N/A)"
+  %p
+    = f.submit "Submit"

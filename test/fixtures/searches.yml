@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  first_name: MyString
+  nickname: MyString
+  last_name: MyString
+  gender: MyString
+  suburb: MyString
+  christian: false
+  became_christian: false
+  min_age: 1
+  max_age: 1
+  has_children: false
+  oldest_child_age: 1
+  church: 
+
+two:
+  name: MyString
+  first_name: MyString
+  nickname: MyString
+  last_name: MyString
+  gender: MyString
+  suburb: MyString
+  christian: false
+  became_christian: false
+  min_age: 1
+  max_age: 1
+  has_children: false
+  oldest_child_age: 1
+  church: 

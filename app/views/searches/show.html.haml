@@ -24,6 +24,8 @@
         -# Put all the search criteria into hidden fields so we can create the search properly
         - @search.criteria.keys.each do |field|
           = f.hidden_field field
+        -# also store the field_ministry_involvement_ids
+        = hidden_field_tag "search[field_ministry_ids][]", @ministry_involvement_ids.to_a
       %p
         = f.submit "Save"
       

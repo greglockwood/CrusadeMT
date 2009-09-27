@@ -1,4 +1,5 @@
-%h2 Listing Field Ministries
+.sectionHeader
+  %h2 Listing Field Ministries
 - if !@field_ministries.empty?
   .field_ministries
     = render :partial => "field_ministry", :collection => @field_ministries

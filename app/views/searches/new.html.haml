@@ -1,4 +1,5 @@
-%h2 New search
+.sectionHeader
+  %h2 New search
 = render :partial => "form", :locals => {:search => @search}
 %ul
   %li= link_to 'Administer FieldMTs', field_ministries_path

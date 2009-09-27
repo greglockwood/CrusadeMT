@@ -3,9 +3,10 @@
   %p
     %label Based on existing search:
     = f.select :based_on, Search.all.collect { |s| [s.name, s.id] }
-    = observe_field "search_based_on", :url => new_search_path, :with => 'based_on'
-  %p
-    \&nbsp;
+    -# javascript redirect to same page, passing in new based_on id
+    = observe_field "search_based_on", :function => "location.href = '#{request.request_uri}'.replace(/\\?based_on=[0-9]+/, '') + '?based_on=' + value;"
+  .clear
+    &nbsp;
   %p
     = f.label :first_name
     = f.text_field :first_name

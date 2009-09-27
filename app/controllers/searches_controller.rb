@@ -9,19 +9,34 @@ class SearchesController < ApplicationController
     # if not, we can just display the search results (show action)
     logger.debug "params[:search] = #{params[:search].to_yaml}"
     @search = Search.new(params[:search])
-    search_criteria = params[:search]
-    logger.debug "search_criteria is: #{search_criteria.to_yaml}"
-    session[:search_criteria] = search_criteria
+    search_criteria = @search.criteria
+    logger.debug "search is: #{@search.to_yaml}"
+    session[:search_criteria] = @search.criteria
     logger.debug "set session to: #{session[:search_criteria].to_yaml}"    
-    redirect_to "/searches/results"
-    #respond_to do |format|
-    #  if @search.name?
-    #    if @search.save
-    #      flash[:notice] = 'Search was successfully saved.'
-    #    end
-    #  end
-    #  format.html { render :action => :show }
-    #end
+    #redirect_to "/searches/results"
+    respond_to do |format|
+      if @search.name?
+        logger.debug "@search has a name of #{@search.name}"
+        if @search.save
+          flash[:notice] = 'Search was successfully saved.'
+          format.html { redirect_to search_path(@search) }
+        else
+          logger.debug "Error(s) saving search: #{@search.errors.to_yaml}"          
+          flash[:warning] = "Error saving search: #{@search.errors.full_messages}"
+          format.html { redirect_to "/searches/results" }
+        end
+      else
+        # if name not supplied, but criteria is the same as the search it is based on, just redirect to that search
+        based_on = Search.find(@search.based_on)
+        logger.debug("Search Criteria = #{@search.criteria.to_yaml}")
+        logger.debug("Based On Search Criteria = #{based_on.criteria.to_yaml}")
+        if based_on.criteria == @search.criteria
+          format.html { redirect_to search_path(based_on) }
+        else
+          format.html { redirect_to "/searches/results" }
+        end
+      end
+    end
   end
 
   def new
@@ -36,7 +51,12 @@ class SearchesController < ApplicationController
       # so use the default search
       existing_search = Search.find_by_name "Everybody"
     end
+    logger.debug "existing_search.attributes = #{existing_search.attributes.to_yaml}"
     @search = Search.new(existing_search.criteria)
+    if params[:based_on]
+      @search.based_on = params[:based_on].to_i
+    end
+    logger.debug "@search = #{@search.to_yaml}"
     respond_to do |format|
       format.html
       format.xml  { render :xml => @search }
@@ -45,12 +65,17 @@ class SearchesController < ApplicationController
 
   def show
     #render :text => session[:search_criteria].to_yaml
-    @search = Search.new(session[:search_criteria])
+    begin
+      @search = Search.find_by_name(params[:id])
+      if !@search
+        @search = Search.new(session[:search_criteria])
+      end
+    end
+    logger.debug "@search = #{@search.to_yaml}"
     #logger.debug "Retrieved session paramaters of: #{@search_criteria.to_yaml}"
     @results = Client.all :conditions => @search.sql_conditions, :joins => :person
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @search }
     end
   end
   private

@@ -1,0 +1,14 @@
+.tablist
+  %ul
+    - if params[:controller] == "searches" and params[:action] == "new"
+      %li.highlighted
+        = link_to "New Search", new_search_path        
+    - else
+      %li
+        = link_to "New Search", new_search_path
+    - if params[:controller] == "field_ministries"
+      %li.highlighted
+        = link_to "Field Ministries Admin", field_ministries_path        
+    - else
+      %li
+        = link_to "Field Ministries Admin", field_ministries_path

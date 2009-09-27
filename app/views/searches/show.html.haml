@@ -1,9 +1,10 @@
 .sectionHeader
-  %h2 Search Results
-  
-%p
-  &nbsp;
-  
+  %h2 
+    Search Results
+    - if !@search.new_record?
+      = " for &quot;#{@search.name}&quot; search"
+    - else
+      for custom search
 .butDExcel{:style => "float:right;"}
   = link_to "Export Emails", "#"
   
@@ -15,7 +16,16 @@
     = pluralize(@results.size, "results")
     found.
     %br
-
+  - if @search.new_record?
+    - form_for(@search) do |f|
+      %p
+        %label Save search as:
+        = f.text_field :name
+        -# Put all the search criteria into hidden fields so we can create the search properly
+        - @search.criteria.keys.each do |field|
+          = f.hidden_field field
+      %p
+        = f.submit "Save"
       
 
 %table.directorytable{:cellspacing => 0, :cellpadding => 0}

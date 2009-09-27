@@ -9,7 +9,7 @@ class Search < ActiveRecord::Base
   attr_accessor :based_on
   
   def criteria
-    attributes.delete :id
+    attributes.reject { |key, value| key == 'created_at' || key == 'updated_at' || key == 'id' || key == 'name'}
   end
   
   def sql_conditions

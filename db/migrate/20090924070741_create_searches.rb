@@ -20,16 +20,16 @@ class CreateSearches < ActiveRecord::Migration
     
     # insert the default "Everybody" search
     Search.create :name => "Everybody", 
-                  :first_name => nil,
-                  :nickname => nil,
-                  :last_name => nil,
-                  :gender => nil,
-                  :suburb => nil,
-                  :christian => nil,
-                  :became_christian => nil,
+                  :first_name => "",
+                  :nickname => "",
+                  :last_name => "",
+                  :gender => "",
+                  :suburb => "",
+                  :christian => false,
+                  :became_christian => false,
                   :min_age => 0,
                   :max_age => 150,
-                  :has_children => nil,
+                  :has_children => false,
                   :oldest_child_age => nil,
                   :church => nil
   end

@@ -4,7 +4,10 @@ Will add any instructions here as they occur to me.
 
 To get up and running, be sure to run the following rake tasks:
 1. rake db:migrate
-2. rake db:populate:states
+   Should create and set up the current database and some necessary records.
+2. rake db:populate:sample_data
+   Creates about 65 sample clients (and 1000 people) using semi-realistic values and random strings. Logic based off specifications given by AJ. If you don't like what it generates, you can always run it again and it will regenerate the data.
+   BEWARE! This erases many tables in the database, and populates it with sample data. Don't run it if you want to at all keep the data in there, including any additional field ministries.
 
 My Todo Tasks:
 1. Refactor the primary, high school, uni thing using Single Table Inheritance. (Done)

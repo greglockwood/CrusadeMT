@@ -19,7 +19,7 @@ module ApplicationHelper
     if setting("show_text_when_field_is_blank") == "yes"
       text
     else
-      ""
+      "&nbsp;"
     end
   end
   
@@ -52,9 +52,20 @@ module ApplicationHelper
 
   
   def unimplemented_section(&block)
-    if setting("show_unimplemented_features") == "yes"
+    case setting("show_unimplemented_features")
+    when "yes"
       concat(capture(&block))
-    else
+    when "disabled"
+      block_html = capture(&block)
+      # set some title (hover/tooltip) text for the containing div to explain why it is grey.
+      title_text = "These features are not yet implemented and have been disabled as a result. They are shown merely to illustrate planned features. You can change whether these features are displayed or not by going to the Settings page."
+      # we need to manually insert the disabled attribute into form inputs and select tags
+      block_html.gsub!(/<(input[^\/]+|select[^>]+)(\/)?>/, '<\1 disabled="disabled"\2>')
+      # the following should insert two blank spaces (an indent) at the beginning of each line, 
+      # so the source is nicely indented consistently. How perfectionist is that?!
+      block_html_tabbed = block_html.split("\n").collect{ |line| "  #{line}" }.join("\n")
+      concat("<div class=\"unimplemented\" title=\"#{title_text}\">\n#{block_html_tabbed}\n</div>\n")
+    when "no"
       ""
     end
   end

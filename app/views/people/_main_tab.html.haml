@@ -1,6 +1,6 @@
 %p
   %label Gender:
-  %span= value_or_blank @person.gender, "Unknown"
+  %span= value_or_blank @person.gender.titleize, "Unknown"
 %p
   %label Address:
   %span.floatLeft= @person.full_address "<br />"

@@ -18,6 +18,8 @@ namespace :db do
     
     desc "Erase and fill database with sample data, slightly randomized"
     task :sample_data => :environment do
+      debug = false # set to false to disable debugging statements
+      
       puts "Loading dependencies..."
       require 'populator'
       require 'faker'
@@ -141,7 +143,7 @@ namespace :db do
         person.first_name = Faker::Name.first_name
         person.middle_name = [nil, Faker::Name.first_name] # should mean some don't have middle names
         person.last_name = Faker::Name.last_name
-        person.gender = %w(Male Female Unknown)
+        person.gender = %w(male female unknown)
         person.christian = [true, false]
         person.church_id = church_ids # should randomly pick one
         person.church_pastor = [nil, Faker::Name.name, "Rev. #{Faker::Name.name}"] unless !person.church_id
@@ -194,12 +196,20 @@ namespace :db do
       # set the reciprocal marriage relationships
       print "Setting reciprocal marriage relationships"
       married_person_ids.each_with_index do |married_person_id, i|
-        spouse = Person.find(married_person_id).spouse
-        spouse.spouse_id = married_person_id
-        spouse.save
-        
-        if i % (married_person_ids.size.to_f / 10.0).to_i == 0
-          # print 10 or so dots, hopefully
+        married_person = Person.find(married_person_id)
+        #spouse = married_person.spouse
+        spouse = Person.update(married_person.spouse_id, :spouse_id => married_person_id)
+        #spouse.save
+        if debug
+          puts "DEBUG:\tSetting person ##{married_person.id}'s spouse (person ##{married_person.spouse.id}) to be married to them."
+          puts "\tVerification: Spouse's spouse_id is: #{Person.find(married_person.spouse_id).spouse_id}. Spouse = #{spouse.to_yaml}"
+        end
+        if i > 10 
+          if i % (married_person_ids.size.to_f / 10.0).to_i == 0
+            # print 10 or so dots, hopefully
+            print "."
+          end
+        else
           print "."
         end
       end

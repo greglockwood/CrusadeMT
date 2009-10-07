@@ -30,4 +30,16 @@ class Person < ActiveRecord::Base
     Date.today.year - date_of_birth.year - (month_diff < 0 ? 1 : 0)
   end
   
+  def full_name
+    [first_name, last_name].compact.join(" ")
+  end
+    
+  def full_name_including_nickname
+    name = []
+    name << first_name unless !first_name?
+    name << "(#{nickname})" unless !nickname?
+    name << last_name unless !last_name
+    name.join " "
+  end
+  
 end

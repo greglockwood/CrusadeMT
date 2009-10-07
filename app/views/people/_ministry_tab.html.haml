@@ -1,0 +1,35 @@
+- field_ministry_involvement = @person.client.field_ministry_involvements.find(params[:involvement].to_i)
+- field_ministry = field_ministry_involvement.field_ministry
+%p
+  %label.strong Field Ministry Name
+  %span.strong= field_ministry.name
+= divider
+%p
+  %strong Standard information kept on all field ministries:
+%p
+  %label First involvement
+  %span= field_ministry_involvement.start_date.to_s :long
+%p
+  %label Last involvement
+  - if field_ministry_involvement.end_date.nil?
+    %span Continuing
+  - else
+    %span= field_ministry_involvement.end_date.to_s :long
+%p
+  %label Did they become a Christian in this ministry?
+  %span= yes_or_no(field_ministry_involvement.became_christian)
+
+= divider
+
+- unimplemented_section do
+  %p
+    %strong Unique data being kept by this ministry:
+  %p
+    Not implemented yet.
+  = divider
+
+- unimplemented_section do
+  %p
+    %strong Conferences and special events attended:
+  %p
+    Not implemented yet.

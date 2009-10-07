@@ -377,7 +377,10 @@ h1#title {
   clear: both;
   display: block;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-bottom: 10px; }
+  .clear .nomargin {
+    margin-bottom: 0; }
 
 .alt {
   display: none; }
@@ -676,6 +679,27 @@ label {
   padding: 5px 8px 5px 0px; }
   label.tiny {
     width: 20px; }
+<<<<<<< HEAD:public/stylesheets/style.css
+=======
+
+.details label {
+  padding: 0; }
+
+.left_column {
+  width: 450px;
+  float: left; }
+  .left_column label {
+    width: 175px; }
+    .left_column label.tiny {
+      width: 20px; }
+
+.right_column {
+  width: 300px;
+  float: left; }
+
+.single_column label {
+  width: 275px; }
+>>>>>>> b676aa627d8ae060824e25bde240a6bf7b5be812:public/stylesheets/style.css
 
 .clearfix {
   display: inline-block; }

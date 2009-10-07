@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  
+  helper_method :setting
+  def setting(name)
+    value = Setting.find_by_name(name.to_s).value
+    logger.debug "Retrieved setting \"#{name}\" = \"#{value}\""
+    value 
+  end
 end

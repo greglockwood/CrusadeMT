@@ -470,6 +470,9 @@ h1#title
   display: block
   height: 0
   overflow: hidden
+  margin-bottom: 10px
+  .nomargin
+    margin-bottom: 0
 
 
 .alt
@@ -486,7 +489,7 @@ form .label
   float: left
   width: 100px
   text-align: right
-  margin-right: 8px
+  margin-right: 8px  
 
 .left_column
   width: 450px
@@ -840,7 +843,6 @@ a
   float: left
   padding-left: 10px
 
-
 label
   width: 175px
   display: block
@@ -849,6 +851,25 @@ label
   &.tiny
     width: 20px
 
+.details
+  label
+    padding: 0
+    
+.left_column
+  width: 450px
+  float: left
+  label
+    width: 175px
+    &.tiny
+      width: 20px
+
+.right_column
+  width: 300px
+  float: left
+
+.single_column
+  label
+    width: 275px
 .clearfix
   display: inline-block
 

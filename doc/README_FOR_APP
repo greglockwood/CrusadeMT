@@ -5,3 +5,5 @@ Will add any instructions here as they occur to me.
 To get up and running, be sure to run the following rake tasks:
 1. rake db:migrate
 2. rake db:populate:states
+
+To 

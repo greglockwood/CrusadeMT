@@ -1,0 +1,17 @@
+= render :partial => 'subtabs'
+.sectionHeader
+  %h2 
+    = "Details for #{@person.full_name_including_nickname}"
+.details.single_column
+  - if params[:involvement].nil?
+    -# first, main tab = person's details
+    = render :partial => 'main_tab'
+  - else
+    -# other tabs for each ministry
+    = render :partial => 'ministry_tab'
+
+
+    
+    
+  
+

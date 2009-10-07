@@ -679,8 +679,6 @@ label {
   padding: 5px 8px 5px 0px; }
   label.tiny {
     width: 20px; }
-<<<<<<< HEAD:public/stylesheets/style.css
-=======
 
 .details label {
   padding: 0; }
@@ -699,7 +697,6 @@ label {
 
 .single_column label {
   width: 275px; }
->>>>>>> b676aa627d8ae060824e25bde240a6bf7b5be812:public/stylesheets/style.css
 
 .clearfix {
   display: inline-block; }

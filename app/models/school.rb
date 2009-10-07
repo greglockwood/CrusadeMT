@@ -8,5 +8,10 @@ class School < ActiveRecord::Base
   has_many :people, :through => :students
   
   validates_presence_of :name
+  
+  def to_param
+    # have the url parameter include the name
+    "#{id}-#{name.gsub(/[^A-Za-z]/, '-')}" # the regex may not be ideal, may need some other allowed chars as well
+  end
 end
 

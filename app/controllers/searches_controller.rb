@@ -16,29 +16,30 @@ class SearchesController < ApplicationController
     session[:field_ministry_involvement_ids] = params[:search][:field_ministry_ids]
     logger.debug "set session to: #{session[:search_criteria].to_yaml}"    
     #redirect_to "/searches/results"
-    respond_to do |format|
-      if @search.name?
-        logger.debug "@search has a name of #{@search.name}"
-        if @search.save
-          flash[:notice] = 'Search was successfully saved.'
-          format.html { redirect_to search_path(@search) }
-        else
-          logger.debug "Error(s) saving search: #{@search.errors.to_yaml}"          
-          flash[:warning] = "Error saving search: #{@search.errors.full_messages}"
-          format.html { redirect_to "/searches/results" }
-        end
+    
+    # determine the correct search URL to redirect to, and store it in the session so we can link to it with the top tabs.
+    search_url = "/searches/results"
+    if @search.name?
+      logger.debug "@search has a name of #{@search.name}"
+      if @search.save
+        flash[:notice] = 'Search was successfully saved.'
+        search_url = search_path(@search)
       else
-        # if name not supplied, but criteria is the same as the search it is based on, just redirect to that search
-        based_on = Search.find(@search.based_on)
-        logger.debug("Search Criteria = #{@search.criteria.to_yaml}")
-        logger.debug("Based On Search Criteria = #{based_on.criteria.to_yaml}")
-        if based_on.criteria == @search.criteria and based_on.field_ministry_ids == @search.field_ministry_ids
-          format.html { redirect_to search_path(based_on) }
-        else
-          format.html { redirect_to "/searches/results" }
-        end
+        logger.debug "Error(s) saving search: #{@search.errors.to_yaml}"          
+        flash[:warning] = "Error saving search: #{@search.errors.full_messages}"
+      end
+    else
+      # if name not supplied, but criteria is the same as the search it is based on, just redirect to that search
+      based_on = Search.find(@search.based_on)
+      logger.debug("Search Criteria = #{@search.criteria.to_yaml}")
+      logger.debug("Based On Search Criteria = #{based_on.criteria.to_yaml}")
+      search_url = "/searches/results"
+      if based_on.criteria == @search.criteria and based_on.field_ministry_ids == @search.field_ministry_ids
+        search_url = search_path(based_on)
       end
     end
+    session[:last_search_path] = search_url
+    redirect_to search_url
   end
 
   def new

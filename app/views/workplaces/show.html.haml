@@ -1,0 +1,16 @@
+.sectionHeader
+  %h2= @workplace.name
+.details.single_column
+  %p
+    %label Address:
+    %span.floatLeft= @workplace.full_address "<br />"
+  .clear &nbsp;
+  
+  = divider
+  
+  %p
+    %label= "#{pluralize(@workplace.people.count, "person")} #{@workplace.people.count == 1 ? "works" : "work"} here:"
+    %ul.floatLeft
+      - @workplace.people.each do |person|
+        %li= link_to person.full_name, person_path(person)
+

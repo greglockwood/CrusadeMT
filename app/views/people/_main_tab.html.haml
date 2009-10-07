@@ -33,7 +33,7 @@
 
 %p
   %label Current employment:
-  %span= value_or_blank_object @person.workplace, :name, "Unemployed", :nil?
+  %span= link_to_or_blank_object @person.workplace, :name, "Unemployed", :nil?
 = divider
 
 %p
@@ -43,7 +43,7 @@
       = blank_text("N/A")
     - else
       - @person.students.each do |student|
-        = student.school.name
+        = link_to student.school.name, school_path(student.school)
         - if student.start_date?
           = "(#{student.start_date.to_s :long}"
           - if student.end_date?
@@ -85,7 +85,7 @@
 
 %p
   %label Home church:
-  %span= value_or_blank_object @person.church, :name, "None", :nil?
+  %span= link_to_or_blank_object @person.church, :name, "None", :nil?
 %p
   %label Church address:
   %span

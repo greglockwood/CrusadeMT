@@ -1,10 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :searches
 
-
   map.resources :field_ministries 
   
   map.resources :people
+  
+  map.resources :churches
+  
+  map.resources :workplaces
+  
+  map.resources :schools
   
   # The priority is based upon order of creation: first created -> highest priority.
 

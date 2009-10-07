@@ -40,6 +40,15 @@ module ApplicationHelper
       object.send(value_method.to_s)
     end
   end
+  
+  def link_to_or_blank_object(object, value_method, blank_string = "N/A", blank_method = nil)
+    is_blank = (blank_method.nil? ? (value.nil? or value.blank?) : object.send(blank_method.to_s))
+    if is_blank
+      blank_text(blank_string)
+    else
+      link_to object.send(value_method.to_s), object
+    end
+  end
 
   
   def unimplemented_section(&block)

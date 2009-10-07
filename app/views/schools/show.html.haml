@@ -1,0 +1,29 @@
+.sectionHeader
+  %h2= @school.name
+.details.single_column
+  %p
+    %label School type:
+    %span= @school.type.titleize
+
+  = divider
+
+  %p
+    %label Address:
+    %span.floatLeft= @school.full_address "<br />"
+  .clear &nbsp;
+  
+  = divider
+  
+  %p
+    %label= "#{pluralize(@school.people.count, "student")} #{@school.people.count == 1 ? "attends" : "attend"}/attended this school:"
+    %ul.floatLeft
+      - @school.students.each do |student|
+        %li
+          = link_to student.person.full_name, person_path(student.person)
+          - if student.start_date?
+            = "(#{student.start_date.to_s :long}"
+            - if student.end_date?
+              =" - #{student.end_date.to_s :long})"
+            - else
+              to present)
+  .clear &nbsp; 

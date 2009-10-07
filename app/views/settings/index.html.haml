@@ -1,0 +1,15 @@
+.sectionHeader
+  %h2 Edit Settings
+
+.details.single_column
+  - form_tag '/settings' do
+    - for @setting in @settings
+      - fields_for "setting[]" do |f|
+        %p
+          %label= @setting.name.titleize
+          = f.select :value, @setting.options_array_for_select_helper
+        %p
+          = h @setting.description
+      = divider  
+    = submit_tag "Update Settings"
+    

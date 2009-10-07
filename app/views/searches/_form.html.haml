@@ -30,11 +30,12 @@
       = f.select :christian, [["Yes",true],["No",false]], :include_blank => "(N/A)"
     .clear
       &nbsp;
-    %p
-      = f.label :became_christian, "Became a Christian with CCCA?"
-      = f.select :became_christian, [["Yes",true],["No",false]], :include_blank => "(N/A)"
-    .clear
-      \&nbsp;
+    - unimplemented_section do
+      %p
+        = f.label :became_christian, "Became a Christian with CCCA?"
+        = f.select :became_christian, [["Yes",true],["No",false]], :include_blank => "(N/A)"
+      .clear
+        &nbsp;
     %p
       = label_tag :age_range, "Age range (yrs)"
       = f.label :min_age, "Min: ", {:class => "tiny"}
@@ -43,14 +44,15 @@
       = f.text_field :max_age, :size => 7, :class => "floatLeft"
     .clear
       &nbsp;
-    %p
-      = f.label :has_children
-      = f.select :has_children, [["Yes",true],["No",false]], :include_blank => "(N/A)"
-    .clear
-      &nbsp;
-    %p
-      = f.label :oldest_child_age
-      = f.text_field :oldest_child_age
+    - unimplemented_section do
+      %p
+        = f.label :has_children
+        = f.select :has_children, [["Yes",true],["No",false]], :include_blank => "(N/A)"
+      .clear
+        &nbsp;
+      %p
+        = f.label :oldest_child_age
+        = f.text_field :oldest_child_age
     %p
       = f.label :church
       = f.select :church_id, Church.all(:order => "state_id ASC, suburb ASC").collect { |c| ["#{c.name} (#{c.suburb}, #{c.state.abbreviation})", c.id]}, :include_blank => "(N/A)"

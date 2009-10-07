@@ -941,3 +941,6 @@ div.help_block {
   background-color: white;
   margin: 0px;
   padding: 5px; }
+
+div.unimplemented p, div.unimplemented label, div.unimplemented input, div.unimplemented select, div.unimplemented span {
+  color: #CCC; }

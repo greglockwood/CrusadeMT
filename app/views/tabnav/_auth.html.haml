@@ -19,3 +19,9 @@
     - else
       %li
         = link_to "Field Ministries Admin", field_ministries_path
+    - if params[:controller] == "settings"
+      %li.active
+        = link_to "Settings", settings_path
+    - else
+      %li
+        = link_to "Settings", settings_path

@@ -48,6 +48,7 @@ namespace :db do
       family_life_ids = []
       children_to_assign_to_kids_ministries = []
       married_person_ids = []
+      used_person_ids = []
       
       
       # create the non-nested sample models to use, like universities and workplaces
@@ -224,7 +225,7 @@ namespace :db do
         when "Student Life"
           print "\tStudent Life : 10 young adults at university"
           Client.populate 10 do |client|
-            client.person_id = young_adult_ids
+            client.person_id = young_adult_ids - used_person_ids
             current_person = Person.find(client.person_id)
             FieldMinistryInvolvement.populate 1 do |involvement|
               involvement.field_ministry_id = field_ministry.id
@@ -240,13 +241,14 @@ namespace :db do
               end
             end
             # TODO Should probably add degrees here as well
+            used_person_ids.push client.person_id
             print "."
           end
           puts "Done"
         when "Athletes In Action"
           print "\tAthletes In Action : 10 clients over 18"
           Client.populate 10 do |client|
-            client.person_id = young_adult_ids + adult_ids
+            client.person_id = (young_adult_ids + adult_ids) - used_person_ids
             FieldMinistryInvolvement.populate 1 do |involvement|
               involvement.field_ministry_id = field_ministry.id
               involvement.client_id = client.id
@@ -254,6 +256,7 @@ namespace :db do
               involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
               involvement.became_christian = [true, false]
             end
+            used_person_ids.push client.person_id
             # TODO Should probably give them a special basketball workplace, maybe
             print "."
           end        
@@ -262,7 +265,7 @@ namespace :db do
           print "\tFamily Life : 10 parents and 5 children"
           # the parents
           Client.populate 10 do |client|
-            client.person_id = adult_ids
+            client.person_id = adult_ids - used_person_ids
             FieldMinistryInvolvement.populate 1 do |involvement|
               involvement.field_ministry_id = field_ministry.id
               involvement.client_id = client.id
@@ -271,6 +274,7 @@ namespace :db do
               involvement.became_christian = [true, false]
             end
             family_life_ids.push client.person_id # keep a list of the parent's person_ids
+            used_person_ids.push client.person_id            
             if family_life_ids.size % 2 == 0
               print "."
             end
@@ -278,19 +282,20 @@ namespace :db do
           # create some children
           # might not want all 5 to be clients
           Client.populate 5 do |client|
-            client.person_id = child_ids
+            client.person_id = child_ids - used_person_ids
             Person.update(client.person_id, :parent_id => family_life_ids.rand) # set their parent to be a random Family Life person
             # for about half the kids, add them to a list for later adding to a kids ministry
             if [1,2].rand == 2
               children_to_assign_to_kids_ministries.push client.id
             end
+            used_person_ids.push client.person_id
             print "."
           end
           puts "Done"          
         when "Children of the World"
           print "\tChildren of the World : 10 children"
           Client.populate 10 do |client|
-            client.person_id = child_ids
+            client.person_id = child_ids - used_person_ids
             # have around half of them as kids of one of the Family Life clients
             if [1,2].rand == 2
               Person.update(client.person_id, :parent_id => family_life_ids.rand)
@@ -302,6 +307,7 @@ namespace :db do
               involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
               involvement.became_christian = [true, false]
             end
+            used_person_ids.push client.person_id
             print "."
           end
           puts "Done"
@@ -309,7 +315,7 @@ namespace :db do
         when "Youth Ministry"
           print "\tYouth Ministry : 10 children"
           Client.populate 10 do |client|
-            client.person_id = child_ids
+            client.person_id = child_ids - used_person_ids
             # have around half of them as kids of one of the Family Life clients
             if [1,2].rand == 2
               Person.update(client.person_id, :parent_id => family_life_ids.rand)
@@ -321,6 +327,7 @@ namespace :db do
               involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
               involvement.became_christian = [true, false]
             end
+            used_person_ids.push client.person_id
             print "."
           end
           puts "Done"
@@ -329,7 +336,7 @@ namespace :db do
           print "\tCRAM : 8 teenagers, 2 teachers"
           # 8 high school students
           Client.populate 8 do |client|
-            client.person_id = teenager_ids
+            client.person_id = teenager_ids - used_person_ids
             current_person = Person.find(client.person_id)
             Student.populate 1 do |student|
               student.person_id = client.person_id
@@ -344,11 +351,12 @@ namespace :db do
               involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
               involvement.became_christian = [true, false]
             end
+            used_person_ids.push client.person_id
             print "."
           end
           # 2 high school teachers
           Client.populate 2 do |client|
-            client.person_id = young_adult_ids + adult_ids
+            client.person_id = (young_adult_ids + adult_ids) - used_person_ids
             Person.update(client.person_id, :workplace_id => high_school_workplace_ids.rand) # set them to work in a random high school work place
             FieldMinistryInvolvement.populate 1 do |involvement|
               involvement.field_ministry_id = field_ministry.id
@@ -357,6 +365,7 @@ namespace :db do
               involvement.end_date = [nil, involvement.start_date + ((1..10).to_a.rand * [30, 90, 182, 365].rand)]
               involvement.became_christian = [true, false]
             end
+            used_person_ids.push client.person_id  
             print "."
           end  
           puts "Done"

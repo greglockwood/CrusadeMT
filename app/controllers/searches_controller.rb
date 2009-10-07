@@ -90,7 +90,16 @@ class SearchesController < ApplicationController
       conditions[0] += " AND " + field_ministry_id_in_condition
     end
     conditions.push @ministry_involvement_ids
-    involvements = FieldMinistryInvolvement.all :conditions => conditions, :joins => {:client => :person}
+    
+    includes = {:client => :person}
+    if !@search.has_children.nil?
+      includes = {:client => {:person => :children}}
+    end
+    involvements = FieldMinistryInvolvement.all ( 
+                   :conditions => conditions, 
+                   :include => includes, 
+                   :group => :person_id,
+                   :order => 'people.last_name ASC, people.first_name ASC')
     @results = involvements.collect { |si| si.client }
     #@results = Client.all :conditions => @search.sql_conditions, :joins => :person
     respond_to do |format|

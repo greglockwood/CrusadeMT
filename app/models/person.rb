@@ -23,7 +23,7 @@ class Person < ActiveRecord::Base
   def age
     # return whatever is in the age field, unless date_of_birth is set,
     # in which case we can calculate the actual age exactly
-    return age unless date_of_birth
+    return read_attribute(:age) unless date_of_birth
     # following mostly stolen from this page: http://www.ruby-forum.com/topic/49265
     day_diff = Date.today - date_of_birth.day
     month_diff = Date.today.month - date_of_birth.month - (day_diff < 0 ? 1 : 0)

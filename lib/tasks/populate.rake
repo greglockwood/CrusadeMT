@@ -178,11 +178,11 @@ namespace :db do
         person.state_id = state_ids # should randomly pick one
         person.postcode = 2000..9999
         # for 1 in 5 people, create up to a few life events, so long as they are over 18
-        if [1,2,3,4,5].rand <= 3 and person.date_of_birth < 18.years.ago.to_date
+        if [1,2,3,4,5].rand <= 3 and person.date_of_birth < 12.years.ago.to_date
           LifeEvent.populate 1..2 do |life_event|
             life_event.person_id = person.id
-            life_event.description = ["Marriage", "Instrument Purchase", "Solo Album Release"] # all I could think of
-            life_event.event_date = 18.years.ago.to_date..3.years.from_now.to_date
+            life_event.description = ["Marriage", "Graduating high school", "Graduating uni"] # all I could think of
+            life_event.event_date = 12.years.ago.to_date..3.years.from_now.to_date
           end
         end
         if person.id % 100 == 0
@@ -350,6 +350,11 @@ namespace :db do
             print "."
           end  
           puts "Done"
+        end
+        
+        SearchInvolvement.populate 1 do |involvement|
+          involvement.search_id = 1
+          involvement.field_ministry_id = field_ministry.id
         end
         
         current_ministry += 1

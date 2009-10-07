@@ -23,7 +23,7 @@ namespace :db do
       require 'faker'
             
       puts "Erasing existing data..."
-      [FieldMinistry, Client, Church, Degree, Enrolment, FieldMinistryInvolvement, LifeEvent, Person, School, State, Student, Workplace].each(&:delete_all)
+      [SearchInvolvement, FieldMinistry, Client, Church, Degree, Enrolment, FieldMinistryInvolvement, LifeEvent, Person, School, State, Student, Workplace].each(&:delete_all)
       puts "Starting population..."
       ministries = ["Student Life", "Athletes In Action", "Family Life", "Children of the World", "Youth Ministry", "CRAM"]
       current_ministry = 0
@@ -178,7 +178,7 @@ namespace :db do
         person.state_id = state_ids # should randomly pick one
         person.postcode = 2000..9999
         # for 1 in 5 people, create up to a few life events, so long as they are over 18
-        if [1,2,3,4,5].rand == 5 and person.date_of_birth < 18.years.ago.to_date
+        if [1,2,3,4,5].rand <= 3 and person.date_of_birth < 18.years.ago.to_date
           LifeEvent.populate 1..2 do |life_event|
             life_event.person_id = person.id
             life_event.description = ["Marriage", "Instrument Purchase", "Solo Album Release"] # all I could think of

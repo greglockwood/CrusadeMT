@@ -9,6 +9,10 @@ To get up and running, be sure to run the following rake tasks:
    Creates about 65 sample clients (and 1000 people) using semi-realistic values and random strings. Logic based off specifications given by AJ. If you don't like what it generates, you can always run it again and it will regenerate the data.
    BEWARE! This erases many tables in the database, and populates it with sample data. Don't run it if you want to at all keep the data in there, including any additional field ministries.
 
+You should also ensure you have the rcov gem installed. 'sudo gem install rcov' at the command line should do the trick if not.
+All the other gems needed should be included in the vendor directory.
+
+
 My Todo Tasks:
 1. Refactor the primary, high school, uni thing using Single Table Inheritance. (Done)
    See this link for details: http://api.rubyonrails.org/classes/ActiveRecord/Base.html, Single Table Inheritance section
@@ -21,3 +25,4 @@ My Todo Tasks:
 8. Dynamic title and green header bar text
 9. Info pages for things like churches, workplaces, etc
 10. Better documentation of code
+11. Support for a person to be a child of multiple people, such as both their mother and father.

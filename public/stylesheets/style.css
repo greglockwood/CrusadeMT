@@ -168,7 +168,7 @@ strong {
 
 .butDExcel {
   display: inline;
-  margin: 5px 0 0 0; }
+  margin: 5px 0 0 10px; }
   .butDExcel a {
     padding: 5px 5px 5px 5px;
     padding-left: 20px;
@@ -228,7 +228,7 @@ input, textarea {
   color: #000;
   font-family: Arial, Verdana, Helvetica;
   padding: 2px 5px 2px 5px;
-  border: 1px solid #ddd; }
+  border: 1px solid #aaa; }
 
 input:focus, textarea:focus {
   background: #FFFFCC; }

@@ -15,8 +15,9 @@ My Todo Tasks:
 2. Include an 'Any' option for field ministry involvements when searching, so that it picks up clients not involved in any ministry at the moment
 3. CSV Export of all data
 4. CSV Export of email addresses
-5. Link Profile link on results page to actual profile page
-6. Create profile page
+5. Link Profile link on results page to actual profile page (Done)
+6. Create profile page (Done)
 7. Many more tests
 8. Dynamic title and green header bar text
 9. Info pages for things like churches, workplaces, etc
+10. Better documentation of code

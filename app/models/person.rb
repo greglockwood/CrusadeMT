@@ -42,4 +42,8 @@ class Person < ActiveRecord::Base
     name.join " "
   end
   
+  def to_param
+    # have the url parameter include their name
+    "#{id}-#{full_name.gsub(/[^A-Za-z]/, '-')}" # the regex may not be ideal, may need some other allowed chars as well
+  end
 end
